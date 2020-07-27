@@ -1,23 +1,15 @@
 /* eslint-disable import/no-webpack-loader-syntax */
 import "./App.scss"
 import React from "react";
-import { Link } from "react-router-dom";
 import Routes from "./routes";
+import Header from "./pages/Header";
+import Flexbox from "flexbox-react";
 
 const App = () => {
-  return (
-    <div>
-      <nav className="navbar navbar">
-        <ul className="nav navbar-nav">
-          <li><Link className="wow" to="/">Homes</Link></li>
-          <li><Link to="/category">Category</Link></li>
-          <li><Link to="/products">Products</Link></li>
-          <li><Link to="/admin">Admin area</Link></li>
-        </ul>
-      </nav>
-      <Routes />
-    </div>
-  )
+  return <Flexbox className="app" flexDirection="column" minHeight="100vh">
+    <Header />
+    <Routes />
+  </Flexbox>
 }
 
 export default App
