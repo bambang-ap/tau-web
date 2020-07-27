@@ -9,11 +9,14 @@ const Header = () => {
 			<img />
 		</Flexbox>
 		<Flexbox>
-			<Flexbox>
-				<Link to="/">Homes</Link>
-				<Link to="/category">Category</Link>
-				<Link to="/products">Products</Link>
-				<Link to="/admin">Admin area</Link>
+			<Flexbox className="nav-bar">
+				<Link to="/">Home</Link>
+				<Link to="/">Tentang TAU</Link>
+				<Link to="/">Akademik</Link>
+				<Link to="/">Fasilitas</Link>
+				<Link to="/">Pendaftaran</Link>
+				<Link to="/">Info & Berita</Link>
+				<Link to="/">TAU Training Center</Link>
 			</Flexbox>
 		</Flexbox>
 	</Flexbox>
