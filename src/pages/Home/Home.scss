@@ -1,6 +1,15 @@
 .app .container {
 	.home {
-		// height: 90vh;
-		// margin-bottom: 1rem;
+		.banner {
+			.info {
+				> div {
+					justify-content: center;
+				}
+			}
+			.image {
+				background-color: rgba(0,0,0,.3);
+				padding: 15rem;
+			}
+		}
 	}
 }
