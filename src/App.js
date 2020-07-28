@@ -1,5 +1,4 @@
 /* eslint-disable import/no-webpack-loader-syntax */
-import "./App.scss"
 import React from "react";
 import Routes from "./routes";
 import Header from "./pages/Header";

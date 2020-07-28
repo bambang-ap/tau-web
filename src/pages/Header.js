@@ -1,4 +1,3 @@
-import './Header.scss'
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Flexbox from 'flexbox-react';

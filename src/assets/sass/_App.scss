@@ -1,0 +1,42 @@
+::-webkit-scrollbar {
+  width: .3rem;
+  &-track {
+    // box-shadow: inset 0 0 5px grey; 
+    border-radius: .5rem;
+  }
+  &-thumb {
+    background: $grey;
+    border-radius: .5rem;
+    &:hover {
+      background: transparentize($greyHard, .65);
+    }
+  }
+}
+
+a {
+	text-decoration: none;
+}
+
+* {
+  font-family: SemiBold; 
+  body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+.app {
+	padding: 0 5rem 0;
+	@import "Header";
+	@import "Route";
+	@import "Home";
+}

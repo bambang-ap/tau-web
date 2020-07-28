@@ -7,7 +7,6 @@ import Category from '../pages/Category';
 import Admin from '../pages/Admin';
 import Products from '../pages/Products';
 import Flexbox from 'flexbox-react';
-import "./Route.scss"
 import ScrollView from 'src/components/ScrollView';
 
 const Routes = () => {
