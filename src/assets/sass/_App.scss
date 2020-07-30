@@ -1,7 +1,8 @@
 ::-webkit-scrollbar {
   width: .3rem;
+  margin-right: .3rem;
   &-track {
-    // box-shadow: inset 0 0 5px grey; 
+    box-shadow: inset 0 0 5px $greySoft; 
     border-radius: .5rem;
   }
   &-thumb {
@@ -14,29 +15,26 @@
 }
 
 a {
-	text-decoration: none;
+  text-decoration: none;
+  color: $link;
 }
 
 * {
   font-family: SemiBold; 
+  font-size: 1rem;
   body {
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    img {
-      width: 100%;
-    }
   }
 }
 
 html, body, #root {
-  height: 100%;
-  overflow: hidden;
+  // height: 100%;
+  // overflow: hidden;
 }
 
 .app {
-	padding: 0 5rem 0;
 	@import "Header";
-	@import "Route";
-	@import "Home";
+  @import "Home";
 }

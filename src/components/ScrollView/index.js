@@ -1,5 +1,5 @@
 import React from 'react';
-import './ScrollView.scss'
+// import './ScrollView.scss'
 import Flexbox from 'flexbox-react';
 
 const ScrollView = ({ className, ...props }) => {

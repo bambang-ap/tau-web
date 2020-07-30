@@ -1,14 +1,12 @@
-/* eslint-disable import/no-webpack-loader-syntax */
 import React from "react";
-import Routes from "./routes";
 import Header from "./pages/Header";
-import Flexbox from "flexbox-react";
+import Routes from "./routes";
 
 const App = () => {
-  return <Flexbox className="app" flexDirection="column" minHeight="100vh">
+  return <div className="app">
     <Header />
-    <Routes />
-  </Flexbox>
+    <Routes className="pt-20 pl-20 pr-20" />
+  </div>
 }
 
 export default App

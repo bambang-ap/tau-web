@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './assets/sass/index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux';
 
+require('./assets/sass/index.scss')
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+      <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
       <BrowserRouter>
         <App />
       </BrowserRouter>

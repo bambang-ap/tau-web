@@ -12,9 +12,21 @@ import GaleriKegiatan from "./GaleriKegiatan";
 import Flexbox from "flexbox-react";
 
 const Home = props => {
+  return <div className="home bg-yellow-500">
+    <div className="home-wrapper b-1" flexDirection="column">
+      <Sambutan />
+      <Fasilitas />
+      <ProgramStudi />
+      <StaffPengajar />
+      <BoardOfAdvisors />
+      <InformasiBerita />
+      <GaleriKegiatan />
+    </div>
+    <Kontak />
+  </div>
   return <ScrollView className="home">
     {/* <Banner /> */}
-    <div className="home-wrapper" flexDirection="column">
+    <div className="home-wrapper b-1" flexDirection="column">
       <Sambutan />
       <Fasilitas />
       <ProgramStudi />
