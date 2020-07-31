@@ -1,14 +1,17 @@
 import React from 'react';
-import Flexbox from 'flexbox-react';
 
-const Banner = props => {
-	return <div {...props} className="banner">
-		<Flexbox justifyContent="space-between" flex="1" className="info">
-			<Flexbox flex="1">xxxxxxxxxxxxxxxxxxxxxxx</Flexbox>
-			<Flexbox flex="1">Sistem Informasi Akademik</Flexbox>
-			<Flexbox flex="1">xxxxxxxxxxxxxxxxxxxxxxx</Flexbox>
-		</Flexbox>
-		<Flexbox className="image" />
+const Banner = ({ className = "", ...props }) => {
+	return <div {...props} id="banner" className={`flex flex-col ${className}`}>
+		<div className="flex p-3 pl-10 pr-10 bc-grey-hard c-light f-20">
+			<div className="f-4 flex flex-1 jc-fs">+62 21 5890 8888 atau (+62) 8123 729 0009</div>
+			<div className="f-4 flex flex-1 jc-c">Sistem Informasi Akademik</div>
+			<div className="f-4 flex flex-1 jc-fe ai-c">
+				<i className="f-4 ml-5 fa fa-instagram" />
+				<i className="f-4 ml-5 fa fa-facebook-square" />
+				<i className="f-4 ml-5 fa fa-twitter-square" />
+			</div>
+		</div>
+		<img alt="" src={require('src/assets/images/banner.png')} />
 	</div>
 }
 

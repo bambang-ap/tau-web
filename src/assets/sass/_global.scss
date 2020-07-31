@@ -4,10 +4,34 @@
 }
 
 $pos: top right bottom left;
-$list: margin padding border;
+$list: font-size margin padding border width height;
 
 $alignment: space-between space-around space-evenly center flex-start flex-end;
 $flexBox: align-self align-content align-items justify-content text-align;
+
+$ii: -.25;
+@each $i in 6 5 4 3 2 1 {
+	$ii: $ii + .25;
+	h#{$i} {
+		font-size: #{1 + $ii}rem !important;
+		@if $i < 5 {
+			@extend .\!Bold;
+		}
+	}
+}
+
+@for $i from 1 to 101 {
+	.brd-#{$i} {
+		border-radius: #{$i * .25}rem;
+	}
+	@each $a in $pos {
+		@each $b in $pos {
+			.b#{str-slice($a, 1, 1)}#{str-slice($b, 1, 1)}rd-#{$i} {
+				border-#{$a}-#{$b}-radius: #{$i * .25}rem;
+			}
+		}
+	}
+}
 
 @each $f in $flexBox {
 	$ff: split-str($f, "-");
@@ -35,18 +59,21 @@ $flexBox: align-self align-content align-items justify-content text-align;
 
 @each $l in $list {
 	$ll: str-slice($l, 1, 1);
-	@for $i from 1 to 21 {
-		$val: if($l == border, $i * .1, $i * .5);
+	@for $i from 1 to 101 {
+		$val: if($l == border, $i * .1, $i * .25);
 		$isBorder: if($l == border, solid $border, "");
 		.#{$ll} {
 			&-#{$i} {
 				#{$l}: #{$val}rem #{$isBorder};
 			}
-			@each $p in $pos {
-				$pp: str-slice($p, 1, 1);
-				&#{$pp} {
-					&-#{$i} {
-						#{$l}-#{$p}: #{$val}rem #{$isBorder};
+			@if index(font-size width height, $l) {
+			} @else {
+				@each $p in $pos {
+					$pp: str-slice($p, 1, 1);
+					&#{$pp} {
+						&-#{$i} {
+							#{$l}-#{$p}: #{$val}rem #{$isBorder};
+						}
 					}
 				}
 			}

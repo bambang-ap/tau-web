@@ -1,3 +1,23 @@
 .home {
-	// visibility: hidden;
+	position: relative;
+	z-index: 1;
+	> div {
+		@extend .bt-1;
+		&:nth-child(odd) {
+			background-color: $greySoft;
+		}
+	}
+	#program-studi {
+		.content {
+			@extend .m-5;
+		}
+	}
+	#boa {
+		.name {
+			bottom: 2rem;
+			left: 0;
+			right: 0;
+			text-align: center;
+		}
+	}
 }

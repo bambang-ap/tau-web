@@ -12,6 +12,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+      <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
       <BrowserRouter>
         <App />
       </BrowserRouter>

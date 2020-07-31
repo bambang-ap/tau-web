@@ -10,7 +10,6 @@
     }
   },
   "exclude": [
-    "node_modules",
-    "src copy"
+    "node_modules"
   ]
 }

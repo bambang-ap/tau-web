@@ -19,9 +19,21 @@ a {
   color: $link;
 }
 
+button:focus, input:focus, textarea:focus {
+  outline: none !important;
+}
+
+[placeholder]::placeholder {
+  color: $placeholder;
+}
+
 * {
-  font-family: SemiBold; 
-  font-size: 1rem;
+  &:not(.fa) {
+    font-family: SemiBold; 
+  }
+  &:not(h1, h2, h3, h4, h5, h6) {
+    font-size: .9rem;
+  }
   body {
     margin: 0;
     -webkit-font-smoothing: antialiased;
@@ -29,12 +41,12 @@ a {
   }
 }
 
-html, body, #root {
-  // height: 100%;
-  // overflow: hidden;
+.o-h {
+  overflow: hidden;
 }
 
 .app {
 	@import "Header";
   @import "Home";
+  @import "Kontak";
 }

@@ -1,27 +1,25 @@
 import React from 'react';
-import Flexbox from 'flexbox-react';
-import Box from 'src/components/Box';
 
-const Fasilitas = props => {
-	return <Flexbox flex="1" className="fasilitas pt-10 pb-10">
-		<Flexbox justifyContent="center" flexDirection="column">
-			<Flexbox element="h3">Staff & Pengajar</Flexbox>
-			<Flexbox className="mt-3 mb-2">Exercitation eiusmod amet ad nisi incididunt deserunt est laborum amet. Excepteur nostrud cupidatat</Flexbox>
-			<Flexbox element="button" alignSelf="flex-start">Lihat Semua</Flexbox>
-		</Flexbox>
-		<Flexbox flexDirection="column" className="p-3">
-			<img alt="" className="img-full" src={require('src/assets/images/1-1.jpg')} />
-			gdshkfjjsdfh
-		</Flexbox>
-		<Flexbox flexDirection="column" className="p-3">
-			<img alt="" className="img-full" src={require('src/assets/images/1-1.jpg')} />
-			gdshkfjjsdfh
-		</Flexbox>
-		<Flexbox flexDirection="column" className="p-3">
-			<img alt="" className="img-full" src={require('src/assets/images/1-1.jpg')} />
-			gdshkfjjsdfh
-		</Flexbox>
-	</Flexbox>
+const Fasilitas = ({ className, ...props }) => {
+	return <div {...props} id="fasilitas" className={`flex ${className}`}>
+		<div className="flex jc-c ai-fs flex-col p-5">
+			<h3>Fasilitas</h3>
+			<p className="mt-5 mb-5">Cillum duis anim qui aliquip laborum cupidatat fugiat anim incididunt sint reprehenderit elit occaecat sint.Excepteur minim Lorem id et aute veniam sunt adipisicing ex adipisicing ipsum nostrud.</p>
+			<button className="b-1 p-2 pl-10 pr-10 brd-3 bc-light">Lihat Semua</button>
+		</div>
+		<div className="flex flex-col p-5">
+			<img className="brd-3" alt="" src={require('src/assets/images/1-1.jpg')} />
+			<div className="mt-5">Fasilitas</div>
+		</div>
+		<div className="flex flex-col p-5">
+			<img className="brd-3" alt="" src={require('src/assets/images/1-1.jpg')} />
+			<div className="mt-5">Fasilitas</div>
+		</div>
+		<div className="flex flex-col p-5">
+			<img className="brd-3" alt="" src={require('src/assets/images/1-1.jpg')} />
+			<div className="mt-5">Fasilitas</div>
+		</div>
+	</div>
 }
 
 export default Fasilitas

@@ -1,0 +1,162 @@
+{
+  "nav": [
+    {
+      "name": "Home",
+      "path": "/"
+    },
+    {
+      "name": "Tentang TAU",
+      "path": "/tentang",
+      "subMenu": [
+        {
+          "name": "Sejarah TAU",
+          "path": "/sejarah"
+        },
+        {
+          "name": "Visi & Misi",
+          "path": "/visi"
+        },
+        {
+          "name": "Struktur Organisasi",
+          "path": "/struktur"
+        },
+        {
+          "name": "Sertifikasi Akreditas",
+          "path": "/sertifikasi"
+        }
+      ]
+    },
+    {
+      "name": "Akademik",
+      "path": "/akademik",
+      "subMenu": [
+        {
+          "name": "Program Sarjana (S1)",
+          "path": "/s1",
+          "subMenu": [
+            {
+              "name": "School Of Management & Leadership",
+              "path": "/management-leadership",
+              "subMenu": [
+                {
+                  "name": "Administrasi Bisnis",
+                  "path": "/bisnis"
+                },
+                {
+                  "name": "Akuntansi",
+                  "path": "/akutansi"
+                },
+                {
+                  "name": "Manajemen",
+                  "path": "/manajemen"
+                },
+                {
+                  "name": "Ilmu Komunikasi",
+                  "path": "/komunikasi"
+                }
+              ]
+            },
+            {
+              "name": "School Of Engineering & Technology",
+              "path": "/engineering-technology",
+              "subMenu": [
+                {
+                  "name": "Teknik Arsitek",
+                  "path": "/arsitek"
+                },
+                {
+                  "name": "Teknik Informatika",
+                  "path": "/ti"
+                },
+                {
+                  "name": " Teknik Elektro",
+                  "path": "/elektro"
+                },
+                {
+                  "name": "Teknik Sipil",
+                  "path": "/sipil"
+                },
+                {
+                  "name": "Sistem Informasi",
+                  "path": "/si"
+                },
+                {
+                  "name": "Teknik Perminyakan",
+                  "path": "/perminyakan"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Program Internasional",
+          "path": "/program-inernational",
+          "subMenu": [
+            {
+              "name": "Fast Track To Australian University",
+              "path": "/australian-university"
+            },
+            {
+              "name": " International Business Program",
+              "path": "/business"
+            }
+          ]
+        },
+        {
+          "name": "Staff Pengajar",
+          "path": "/staff"
+        }
+      ]
+    },
+    {
+      "name": "Fasilitas",
+      "path": "/fasilitas"
+    },
+    {
+      "name": "Pendaftaran",
+      "path": "/pendaftaran",
+      "subMenu": [
+        {
+          "name": "Daftar Online",
+          "path": "/online"
+        },
+        {
+          "name": "Pendaftaran Beasiswa Berprestasi",
+          "path": "/beasiswa"
+        }
+      ]
+    },
+    {
+      "name": "Info & Berita",
+      "path": "/info",
+      "subMenu": [
+        {
+          "name": "Informasi & Berita TAU",
+          "path": "/berita"
+        },
+        {
+          "name": "Kemahasiswaan",
+          "path": "/mhs",
+          "subMenu": [
+            {
+              "name": "Form Mahasiswa",
+              "path": "/form"
+            },
+            {
+              "name": "Tracker Study",
+              "path": "/tracker"
+            }
+          ]
+        },
+        {
+          "name": "Career",
+          "path": "/career"
+        }
+      ]
+    },
+    {
+      "name": "TAU Training Center",
+      "path": "/training"
+    }
+  ]
+}

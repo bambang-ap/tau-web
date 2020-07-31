@@ -1,14 +1,44 @@
 import React from 'react';
-import Flexbox from 'flexbox-react';
-import Box from 'src/components/Box';
 
-const InformasiBerita = props => {
-	return <Flexbox flex="1" className="informasi-berita">
-		<Box />
-		<Box />
-		<Box />
-		<Box />
-	</Flexbox>
+const InformasiBerita = ({ className, ...props }) => {
+	return <div {...props} id="boa" className={`ai-c flex flex-col ${className}`}>
+		<h2>Informasi & Berita</h2>
+		<div className="mt-5 flex">
+			<div className="m-5 flex flex-col w-1/4 b-1 content brd-3 o-h">
+				<img alt="" src={require('src/assets/images/1-1.jpg')} />
+				<div className="p-3 pr-4 pl-4">
+					<h3>Artikel</h3>
+					<div>Lorem ipsum dolor sit amet</div>
+					<button className="as-fs c-link">baca selengkapnya &gt;</button>
+				</div>
+			</div>
+			<div className="m-5 flex flex-col w-1/4 b-1 content brd-3 o-h">
+				<img alt="" src={require('src/assets/images/1-1.jpg')} />
+				<div className="p-3 pr-4 pl-4">
+					<h3>Artikel</h3>
+					<div>Lorem ipsum dolor sit amet</div>
+					<button className="as-fs c-link">baca selengkapnya &gt;</button>
+				</div>
+			</div>
+			<div className="m-5 flex flex-col w-1/4 b-1 content brd-3 o-h">
+				<img alt="" src={require('src/assets/images/1-1.jpg')} />
+				<div className="p-3 pr-4 pl-4">
+					<h3>Artikel</h3>
+					<div>Lorem ipsum dolor sit amet</div>
+					<button className="as-fs c-link">baca selengkapnya &gt;</button>
+				</div>
+			</div>
+			<div className="m-5 flex flex-col w-1/4 b-1 content brd-3 o-h">
+				<img alt="" src={require('src/assets/images/1-1.jpg')} />
+				<div className="p-3 pr-4 pl-4">
+					<h3>Artikel</h3>
+					<div>Lorem ipsum dolor sit amet</div>
+					<button className="as-fs c-link">baca selengkapnya &gt;</button>
+				</div>
+			</div>
+		</div>
+		<button className="b-1 p-2 pl-10 pr-10 brd-3 bc-light">Lihat Semua</button>
+	</div>
 }
 
 export default InformasiBerita

@@ -1,0 +1,7 @@
+#kontak {
+	* {
+		&:not(.fa) {
+			font-family: Regular;
+		}
+	}
+}

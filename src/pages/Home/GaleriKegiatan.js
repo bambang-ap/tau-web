@@ -1,24 +1,71 @@
 import React from 'react';
-import Flexbox from 'flexbox-react';
-import Box from 'src/components/Box';
 
-const GaleriKegiatan = props => {
-	return <Flexbox flex="1" className="galeri-kegiatan" flexDirection="column">
-		<Flexbox justifyContent="center" element="h3">Galeri Kegiatan</Flexbox>
-		<Flexbox justifyContent="center">Dokumentasi kegiatan kampus</Flexbox>
-		<Flexbox flex="1">
-			<Box />
-			<Box />
-			<Box />
-			<Box />
-		</Flexbox>
-		<Flexbox flex="1">
-			<Box />
-			<Box />
-			<Box />
-			<Box />
-		</Flexbox>
-	</Flexbox>
+const GaleriKegiatan = ({ className, ...props }) => {
+	return <div {...props} id="program-studi" className={`ai-c flex flex-col ${className}`}>
+		<h2>Program Studi</h2>
+		<h3 className="mt-5 mb-5">Program studi terbaik yang sudah terakreditasi</h3>
+		<button className="b-1 p-2 pl-10 pr-10 brd-3 bc-light">Lihat Semua</button>
+		<div className="mt-5 flex">
+			<div className="flex flex-col w-1/4 b-1 content brd-3 o-h">
+				<img alt="" src={require('src/assets/images/1-1.jpg')} />
+				<div className="p-3 pr-4 pl-4">
+					<h3>Foto / Video</h3>
+					<div>Lorem ipsum dolor sit amet</div>
+				</div>
+			</div>
+			<div className="flex flex-col w-1/4 b-1 content brd-3 o-h">
+				<img alt="" src={require('src/assets/images/1-1.jpg')} />
+				<div className="p-3 pr-4 pl-4">
+					<h3>Foto / Video</h3>
+					<div>Lorem ipsum dolor sit amet</div>
+				</div>
+			</div>
+			<div className="flex flex-col w-1/4 b-1 content brd-3 o-h">
+				<img alt="" src={require('src/assets/images/1-1.jpg')} />
+				<div className="p-3 pr-4 pl-4">
+					<h3>Foto / Video</h3>
+					<div>Lorem ipsum dolor sit amet</div>
+				</div>
+			</div>
+			<div className="flex flex-col w-1/4 b-1 content brd-3 o-h">
+				<img alt="" src={require('src/assets/images/1-1.jpg')} />
+				<div className="p-3 pr-4 pl-4">
+					<h3>Foto / Video</h3>
+					<div>Lorem ipsum dolor sit amet</div>
+				</div>
+			</div>
+		</div>
+		<div className="mt-5 flex">
+			<div className="flex flex-col w-1/4 b-1 content brd-3 o-h">
+				<img alt="" src={require('src/assets/images/1-1.jpg')} />
+				<div className="p-3 pr-4 pl-4">
+					<h3>Foto / Video</h3>
+					<div>Lorem ipsum dolor sit amet</div>
+				</div>
+			</div>
+			<div className="flex flex-col w-1/4 b-1 content brd-3 o-h">
+				<img alt="" src={require('src/assets/images/1-1.jpg')} />
+				<div className="p-3 pr-4 pl-4">
+					<h3>Foto / Video</h3>
+					<div>Lorem ipsum dolor sit amet</div>
+				</div>
+			</div>
+			<div className="flex flex-col w-1/4 b-1 content brd-3 o-h">
+				<img alt="" src={require('src/assets/images/1-1.jpg')} />
+				<div className="p-3 pr-4 pl-4">
+					<h3>Foto / Video</h3>
+					<div>Lorem ipsum dolor sit amet</div>
+				</div>
+			</div>
+			<div className="flex flex-col w-1/4 b-1 content brd-3 o-h">
+				<img alt="" src={require('src/assets/images/1-1.jpg')} />
+				<div className="p-3 pr-4 pl-4">
+					<h3>Foto / Video</h3>
+					<div>Lorem ipsum dolor sit amet</div>
+				</div>
+			</div>
+		</div>
+	</div>
 }
 
 export default GaleriKegiatan
