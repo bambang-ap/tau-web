@@ -2,9 +2,9 @@ import React from 'react';
 
 const Sambutan = ({ className, ...props }) => {
 	return <div {...props} id="sambutan" className={`ai-c flex flex-col ${className}`}>
-		<h3>Sambutan Rektor TAU</h3>
-		<div className="flex ai-c">
-			<div className="brd-3 o-h w-60">
+		<h4>Sambutan Rektor TAU</h4>
+		<div className="flex ai-c mt-5 pl-15 pr-15">
+			<div className="brd-3 o-h w-80">
 				<img alt="" src={require('src/assets/images/1-1.jpg')} />
 			</div>
 			<div className="pl-5">

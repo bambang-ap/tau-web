@@ -13,7 +13,7 @@ $ii: -.25;
 @each $i in 6 5 4 3 2 1 {
 	$ii: $ii + .25;
 	h#{$i} {
-		font-size: #{1 + $ii}rem !important;
+		font-size: #{1.1 + $ii}rem !important;
 		@if $i < 5 {
 			@extend .\!Bold;
 		}

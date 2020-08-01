@@ -2,12 +2,12 @@ import React from 'react';
 
 const InformasiBerita = ({ className, ...props }) => {
 	return <div {...props} id="boa" className={`ai-c flex flex-col ${className}`}>
-		<h2>Informasi & Berita</h2>
+		<h5>Informasi & Berita</h5>
 		<div className="mt-5 flex">
 			<div className="m-5 flex flex-col w-1/4 b-1 content brd-3 o-h">
 				<img alt="" src={require('src/assets/images/1-1.jpg')} />
 				<div className="p-3 pr-4 pl-4">
-					<h3>Artikel</h3>
+					<h5>Artikel</h5>
 					<div>Lorem ipsum dolor sit amet</div>
 					<button className="as-fs c-link">baca selengkapnya &gt;</button>
 				</div>
@@ -15,7 +15,7 @@ const InformasiBerita = ({ className, ...props }) => {
 			<div className="m-5 flex flex-col w-1/4 b-1 content brd-3 o-h">
 				<img alt="" src={require('src/assets/images/1-1.jpg')} />
 				<div className="p-3 pr-4 pl-4">
-					<h3>Artikel</h3>
+					<h5>Artikel</h5>
 					<div>Lorem ipsum dolor sit amet</div>
 					<button className="as-fs c-link">baca selengkapnya &gt;</button>
 				</div>
@@ -23,7 +23,7 @@ const InformasiBerita = ({ className, ...props }) => {
 			<div className="m-5 flex flex-col w-1/4 b-1 content brd-3 o-h">
 				<img alt="" src={require('src/assets/images/1-1.jpg')} />
 				<div className="p-3 pr-4 pl-4">
-					<h3>Artikel</h3>
+					<h5>Artikel</h5>
 					<div>Lorem ipsum dolor sit amet</div>
 					<button className="as-fs c-link">baca selengkapnya &gt;</button>
 				</div>
@@ -31,7 +31,7 @@ const InformasiBerita = ({ className, ...props }) => {
 			<div className="m-5 flex flex-col w-1/4 b-1 content brd-3 o-h">
 				<img alt="" src={require('src/assets/images/1-1.jpg')} />
 				<div className="p-3 pr-4 pl-4">
-					<h3>Artikel</h3>
+					<h5>Artikel</h5>
 					<div>Lorem ipsum dolor sit amet</div>
 					<button className="as-fs c-link">baca selengkapnya &gt;</button>
 				</div>

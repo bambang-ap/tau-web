@@ -6,12 +6,14 @@ const Banner = ({ className = "", ...props }) => {
 			<div className="f-4 flex flex-1 jc-fs">+62 21 5890 8888 atau (+62) 8123 729 0009</div>
 			<div className="f-4 flex flex-1 jc-c">Sistem Informasi Akademik</div>
 			<div className="f-4 flex flex-1 jc-fe ai-c">
-				<i className="f-4 ml-5 fa fa-instagram" />
-				<i className="f-4 ml-5 fa fa-facebook-square" />
-				<i className="f-4 ml-5 fa fa-twitter-square" />
+				<i className="f-6 ml-5 fa fa-instagram" />
+				<i className="f-6 ml-5 fa fa-facebook-square" />
+				<i className="f-6 ml-5 fa fa-twitter-square" />
 			</div>
 		</div>
-		<img alt="" src={require('src/assets/images/banner.png')} />
+		<div className="">
+			<img className="" alt="" src={require('src/assets/images/banner.png')} />
+		</div>
 	</div>
 }
 
