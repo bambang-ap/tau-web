@@ -9,17 +9,6 @@ $list: font-size margin padding border width height;
 $alignment: space-between space-around space-evenly center flex-start flex-end;
 $flexBox: align-self align-content align-items justify-content text-align;
 
-$ii: -.25;
-@each $i in 6 5 4 3 2 1 {
-	$ii: $ii + .25;
-	h#{$i} {
-		font-size: #{1.1 + $ii}rem !important;
-		@if $i < 5 {
-			@extend .\!Bold;
-		}
-	}
-}
-
 @for $i from 1 to 101 {
 	.brd-#{$i} {
 		border-radius: #{$i * .25}rem;

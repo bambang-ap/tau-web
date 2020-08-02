@@ -36,8 +36,8 @@ const Header = ({ className, ...props }) => {
 				const viewPath = prevPath + path
 				return subMenu ?
 					<div className="menu flex flex-1 as-c" key={i}>
-						<button className={`f-4 ${Menu && 'jc-c'} flex ai-c jc-sb flex flex-1 link`} onMouseEnter={() => openSubMenu(viewId)} onClick={() => openSubMenuClick(viewPath, true)}>
-							<div>{name}</div>
+						<button className={`${Menu && 'jc-c'} flex ai-c jc-sb flex flex-1 link`} onMouseEnter={() => openSubMenu(viewId)} onClick={() => openSubMenuClick(viewPath, true)}>
+							<div className="f-4">{name}</div>
 							{!Menu && <i className="ml-3 c-grey fa fa-chevron-right" />}
 						</button>
 						<div className={`sub-menu ${Menu && 'tail'}`} style={{ display: subMenuOpen[viewId] ? 'block' : 'none' }}>

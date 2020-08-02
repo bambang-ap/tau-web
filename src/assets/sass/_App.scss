@@ -32,7 +32,7 @@ button:focus, input:focus, textarea:focus {
     font-family: SemiBold; 
   }
   &:not(h1, h2, h3, h4, h5, h6) {
-    font-size: 1rem;
+    font-size: #{$fontSize}rem;
   }
   body {
     margin: 0;
@@ -46,7 +46,23 @@ button:focus, input:focus, textarea:focus {
 }
 
 .app {
-	@import "Header";
-  @import "Home";
-  @import "Kontak";
+  @import "Header";
+  .container {
+    $ii: 0;
+    transition: 1s;
+    @for $i from 1281 to 1440 {
+      @media screen and (min-width: #{$i}px) {
+        & {
+          &:before {
+            content:'#{$i}px';
+          }
+          transform-origin: top left;
+          transform: scale(1 + $ii);
+        }
+      }
+      $ii: $ii + .001;
+    }
+    @import "Home";
+    @import "Kontak";
+  }
 }

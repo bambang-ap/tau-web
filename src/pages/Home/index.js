@@ -9,7 +9,7 @@ import GaleriKegiatan from "./GaleriKegiatan";
 import Banner from './Banner';
 
 const Home = props => {
-  return <div className="w-full home b-1">
+  return <div className="w-full home">
     <Banner />
     <>
       <Sambutan className="p-5" />
