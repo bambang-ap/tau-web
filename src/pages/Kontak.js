@@ -3,10 +3,10 @@ import React from 'react';
 const Kontak = ({ className, ...props }) => {
 	return <div {...props} id="kontak" className={`flex bc-blue ${className}`}>
 		<div className="c-light flex">
-			<div className="flex w-100">
+			<div className="flex w-1/2">
 				<img alt="" src={require('src/assets/images/1-1.jpg')} />
 			</div>
-			<div className="flex flex-col ml-10">
+			<div className="flex flex-col ml-10 w-1/2">
 				<h5 className="mb-3">Kontak Kami</h5>
 				<h5 className="mb-3">Tanri Abeng University</h5>
 				<div className="mb-3">Jl. Swadarma Raya No.58, Ulujami, Pesanggrahan, Jakarta Selatan - 12250</div>

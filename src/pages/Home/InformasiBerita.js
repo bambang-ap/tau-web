@@ -37,7 +37,7 @@ const InformasiBerita = ({ className, ...props }) => {
 				</div>
 			</div>
 		</div>
-		<button className="b-1 p-2 pl-10 pr-10 brd-3 bc-light">Lihat Semua</button>
+		{window.location.pathname.includes('/home') && <button className="b-1 p-2 pl-10 pr-10 brd-3 bc-light">Lihat Semua</button>}
 	</div>
 }
 

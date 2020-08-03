@@ -2,7 +2,7 @@
   "nav": [
     {
       "name": "Home",
-      "path": "/"
+      "path": "/home"
     },
     {
       "name": "Tentang TAU",
@@ -90,7 +90,7 @@
         },
         {
           "name": "Program Internasional",
-          "path": "/program-inernational",
+          "path": "/international",
           "subMenu": [
             {
               "name": "Fast Track To Australian University",

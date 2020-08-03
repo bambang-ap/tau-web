@@ -1,17 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import actionsUi from '../redux/actions/ui';
+import React, { useState } from 'react';
+import { useHistory, Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Header = ({ className, ...props }) => {
 	const { data: UI } = useSelector(state => state.UI)
-	const dispatch = useDispatch()
-	const history = useHistory()
 	const [subMenuOpen, setSubMenuOpen] = useState({})
-
-	useEffect(() => {
-		dispatch(actionsUi())
-	}, [dispatch])
 
 	const openSubMenu = (id) => {
 		let menu = {}
@@ -23,11 +16,6 @@ const Header = ({ className, ...props }) => {
 		setSubMenuOpen({ ...menu })
 	}
 
-	const openSubMenuClick = (path, isSubMenu = false) => {
-		if (!isSubMenu)
-			history.push(path)
-	}
-
 	const NavBar = (arr, id = "", prevPath = "") => {
 		const Menu = id === ""
 		return arr.map(
@@ -36,16 +24,16 @@ const Header = ({ className, ...props }) => {
 				const viewPath = prevPath + path
 				return subMenu ?
 					<div className="menu flex flex-1 as-c" key={i}>
-						<button className={`${Menu && 'jc-c'} flex ai-c jc-sb flex flex-1 link`} onMouseEnter={() => openSubMenu(viewId)} onClick={() => openSubMenuClick(viewPath, true)}>
-							<div className="f-4">{name}</div>
+						<Link className={`${Menu && 'jc-c'} flex ai-c jc-sb flex flex-1 link ${window.location.href.includes(viewPath) && 'active'}`} onMouseEnter={() => openSubMenu(viewId)} to={viewPath}>
+							<div>{name}</div>
 							{!Menu && <i className="ml-3 c-grey fa fa-chevron-right" />}
-						</button>
+						</Link>
 						<div className={`sub-menu ${Menu && 'tail'}`} style={{ display: subMenuOpen[viewId] ? 'block' : 'none' }}>
 							{NavBar(subMenu, viewId, viewPath)}
 						</div>
 					</div> :
 					<div className="menu flex flex-1 as-c" key={i}>
-						<button className={`f-4 ${Menu && 'jc-c'} flex flex-1 link ${path === '/' && 'active'}`} onMouseEnter={() => openSubMenu(viewId)} onClick={() => openSubMenuClick(viewPath)}>{name}</button>
+						<Link className={`${Menu && 'jc-c'} flex flex-1 link ${window.location.href.includes(viewPath) && 'active'}`} onMouseEnter={() => openSubMenu(viewId)} to={viewPath}>{name}</Link>
 					</div>
 			}
 		)

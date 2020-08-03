@@ -1,10 +1,10 @@
-import reducerProducts from './products';
 import reducerUi from './ui';
+import reducerWeb from './web';
 
 const { combineReducers } = require("redux");
 
 const webReducer = combineReducers({
-	Product: reducerProducts,
+	Web: reducerWeb,
 	UI: reducerUi
 })
 

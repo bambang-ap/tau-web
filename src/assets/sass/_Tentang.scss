@@ -1,0 +1,10 @@
+#tentang {
+	.tab {
+		border-bottom: .1rem solid $text;
+		&.active {
+			border-color: $link;
+			border-bottom-width: .25rem;
+			color: $link;
+		}
+	}
+}

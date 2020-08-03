@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BoardOfAdvisors = ({ className, ...props }) => {
+const BoardOfAdvisors = ({ className,staticContext, ...props }) => {
 	return <div {...props} id="boa" className={`ai-c flex flex-col ${className}`}>
 		<h4>Board of Advisors</h4>
 		<div className="mt-5 flex">

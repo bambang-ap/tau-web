@@ -47,22 +47,7 @@ button:focus, input:focus, textarea:focus {
 
 .app {
   @import "Header";
-  .container {
-    $ii: 0;
-    transition: 1s;
-    @for $i from 1281 to 1440 {
-      @media screen and (min-width: #{$i}px) {
-        & {
-          &:before {
-            content:'#{$i}px';
-          }
-          transform-origin: top left;
-          transform: scale(1 + $ii);
-        }
-      }
-      $ii: $ii + .001;
-    }
-    @import "Home";
-    @import "Kontak";
-  }
+  @import "Home";
+  @import "Tentang";
+  @import "Kontak";
 }

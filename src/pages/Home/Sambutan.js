@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Sambutan = ({ className, ...props }) => {
+const Sambutan = ({ className, staticContext, ...props }) => {
 	return <div {...props} id="sambutan" className={`ai-c flex flex-col ${className}`}>
 		<h4>Sambutan Rektor TAU</h4>
 		<div className="flex ai-c mt-5 pl-15 pr-15">
-			<div className="brd-3 o-h w-80">
+			<div className="brd-3 o-h w-1/4">
 				<img alt="" src={require('src/assets/images/1-1.jpg')} />
 			</div>
 			<div className="pl-5">
