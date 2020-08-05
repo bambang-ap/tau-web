@@ -1,20 +1,22 @@
 import React from 'react';
-import Banner from '../Home/Banner';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+import Staff from './Staff';
 
-const Akademik = () => {
-	const tabs = [
-		["/tentang/sejarah", "Sejarah TAU"],
-		["/tentang/visi", "Visi & Misi"],
-		["/tentang/struktur", "Struktur Organisasi"],
-		["/tentang/sertifikasi", "Sertifikasi Akreditas"]
-	]
-	return <div id="tentang" className="flex flex-1">
-		{/* <Banner /> */}
-		{tabs.map(([path, name], i) =>
-			<Link key={i} to={path} className={`${window.location.href.includes(path) && 'active'} tab p-3 jc-c flex flex-1`} >{name}</Link>
-		)}
-	</div>
+const Akademik = props => {
+	const { match } = props
+	const Programs = {
+		international: ["australian-university", "business"],
+		s1: ["management-leadership", "engineering-technology"]
+	}
+	const render = () => {
+		const { akademik, program } = match.params
+		if (akademik !== 'staff') {
+			const key = Programs[akademik][0]
+			return <Redirect to={`${match.url}/${program || key}`} />
+		}
+		return <Staff  {...props} />
+	}
+	return render()
 }
 
 export default Akademik

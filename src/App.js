@@ -1,23 +1,24 @@
 import React, { useEffect } from "react";
 import Routes from "./routes";
 import { useDispatch } from "react-redux";
-import actionsUi from "./redux/actions/ui";
+import actionUi from "./redux/actions/ui";
 import Header from "./pages/Header";
 import Kontak from "./pages/Kontak";
-
+import Banner from "./pages/Home/Banner";
 const App = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(actionsUi())
+    dispatch(actionUi())
   }, [dispatch])
-
+  
   return <div className="flex flex-wrap w-full app">
-    <Header className="pl-10 pr-10 pt-5 pb-5" />
-    <div className="bg-white w-full pt-25">
+    <Header className="pl-10 pr-10 h-30 bb-1 pt-5 pb-5" />
+    <div className="bg-white w-full pt-30">
+      <Banner />
       <Routes />
     </div>
-    <Kontak className="p-15" />
+    <Kontak className="w-full p-15" />
   </div>
 }
 

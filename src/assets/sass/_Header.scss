@@ -22,16 +22,16 @@
 		}
 		.sub-menu {
 			@extend .b-1;
+			transition: 2s;
 			position: absolute;
 			background-color: $light;
 			z-index: 2;
-			left: -1px;
 			top: 100%;
 			&.tail:before {
 				@include arrow(top, $grey, 1rem);
 				position: absolute;
 				top: -1rem;
-				left: 10%;
+				left: 20%;
 				@extend .ml-5;
 				content: '';
 			}
