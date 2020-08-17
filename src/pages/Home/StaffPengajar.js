@@ -1,27 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { getManage, getStaff, IMG_PATH } from 'src/utils/api';
+import { Link } from 'react-router-dom';
 
-const StaffPengajar = ({ className, staticContext, ...props }) => {
-	return <div {...props} id="staff-pengajar" className={`flex ${className}`}>
-		<div className="flex w-1/4 flex-col p-5">
-			<img className="brd-3" alt="" src={require('src/assets/images/1-1.jpg')} />
-			<div className="mt-5">Dr. Tanri Abeng, MBA</div>
-			<div className="as-fs c-link SemiBoldItalic">Rector TANRI ABENG UNIVERSITY</div>
-		</div>
-		<div className="flex w-1/4 flex-col p-5">
-			<img className="brd-3" alt="" src={require('src/assets/images/1-1.jpg')} />
-			<div className="mt-5">Dr. Tanri Abeng, MBA</div>
-			<div className="as-fs c-link SemiBoldItalic">Rector TANRI ABENG UNIVERSITY</div>
-		</div>
-		<div className="flex w-1/4 flex-col p-5">
-			<img className="brd-3" alt="" src={require('src/assets/images/1-1.jpg')} />
-			<div className="mt-5">Dr. Tanri Abeng, MBA</div>
-			<div className="as-fs c-link SemiBoldItalic">Rector TANRI ABENG UNIVERSITY</div>
-		</div>
-		<div className="flex w-1/4 jc-c ai-fs flex-col p-5">
+const StaffPengajar = ({ className, ...props }) => {
+	const isHome = window.location.pathname.includes('/home')
+	const [state, setState] = useState({ data: [] })
+	const getData = async () => {
+		const { data: manage } = await getManage({ part: 'staff' })
+		const { data } = await getStaff()
+		setState({ ...manage, data })
+	}
+	const effect = () => {
+		getData()
+	}
+	useEffect(effect, [])
+	return <div {...props} id="staff-pengajar" className={`flex flex-wrap ${className}`}>
+		{(isHome ? state.data.filter((a, i) => i < 3) : state.data).rMap(a => <div className="flex w-1/4 flex-col p-5">
+			<img className="brd-3" alt="" src={IMG_PATH + a.foto} />
+			<div className="mt-5">{a.nama}</div>
+			<div className="as-fs c-link SemiBoldItalic">{a.jabatan}</div>
+		</div>)}
+		{isHome && <div className="flex w-1/4 jc-c ai-fs flex-col p-5">
 			<h4>Staff & Pengajar</h4>
-			<p className="mt-5 mb-5">Cillum duis anim qui aliquip laborum cupidatat fugiat anim incididunt sint reprehenderit elit occaecat sint.Excepteur minim Lorem id et aute veniam sunt adipisicing ex adipisicing ipsum nostrud.</p>
-			<button className="b-1 p-2 pl-10 pr-10 brd-3 bc-light">Lihat Semua</button>
-		</div>
+			<p className="mt-5 mb-5">{state.content}</p>
+			<Link onClick={'/akademik/staff'} className="b-1 p-2 pl-10 pr-10 brd-3 bc-light">Lihat Semua</Link>
+		</div>}
 	</div>
 }
 

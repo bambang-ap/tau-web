@@ -10,8 +10,6 @@ require('./assets/sass/index.scss')
 
 ReactDOM.render(
   <React.StrictMode>
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
     <Provider store={store}>
       {/* <link href={require('./assets/sass/index.scss')} rel="stylesheet" /> */}
       <BrowserRouter>

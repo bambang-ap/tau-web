@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { IMG_PATH, getManage } from 'src/utils/api';
+import HtmlParser from 'react-html-parser';
+import { useState } from 'react';
 
-const Sambutan = ({ className, staticContext, ...props }) => {
+const Sambutan = ({ className, ...props }) => {
+	const [state, setState] = useState({ image: '' })
+	const getData = async () => {
+		const { data } = await getManage({ part: 'sambutan' })
+		setState(data)
+	}
+	const effect = () => {
+		getData()
+	}
+	useEffect(effect, [])
 	return <div {...props} id="sambutan" className={`ai-c flex flex-col ${className}`}>
 		<h4>Sambutan Rektor TAU</h4>
 		<div className="flex ai-c mt-5 pl-15 pr-15">
-			<div className="brd-3 o-h w-1/4">
-				<img alt="" src={require('src/assets/images/1-1.jpg')} />
+			<div className="flex brd-3 o-h w-1/5">
+				<img className="w-auto h-auto" alt="" src={IMG_PATH + state.image} />
 			</div>
-			<div className="pl-5">
-				<p className="mb-5">Duis consequat labore ullamco quis non aute qui cupidatat sunt nisi tempor est cillum.</p>
-				<p className="mb-5">Duis conseExercitation amet ex ullamco reprehenderit ad cupidatat non.quat labore ullamco quis non aute qui cupidatat sunt nisi tempor est cillum.</p>
-				<p className="mb-5">Duis consequat labore ullamco quis non aute qui cupidatat sunt nisi tempor est cillum.</p>
-				<p>Duis consequat labore ullamco quis non aute qui cupidatat sunt nisi tempor est cillumVeniam excepteur culpa dolor minim eiusmod adipisicing ad amet aute nulla sint..</p>
+			<div className="flex flex-col w-4/5 pl-5">
+				{HtmlParser(state.content)}
 			</div>
 		</div>
 	</div>

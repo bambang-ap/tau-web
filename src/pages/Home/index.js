@@ -6,11 +6,30 @@ import BoardOfAdvisors from "./BoardOfAdvisors";
 import ProgramStudi from "./ProgramStudi";
 import StaffPengajar from "./StaffPengajar";
 import GaleriKegiatan from "./GaleriKegiatan";
+import { useState } from 'react';
+import { getManage } from 'src/utils/api';
+import { useEffect } from 'react';
 
 const Home = props => {
+  const [state, _] = useState({})
+  const setState = v => _({ ...state, ...v })
+  const getData = async () => {
+    const { data } = await getManage()
+    setState({
+      manage: data.reduce((a, b) => {
+        a[b.part] = b
+        return a
+      }, {})
+    })
+  }
+  const effect = () => {
+    getData()
+    window.scrollTo({ top: 0 })
+  }
+  useEffect(effect, [])
   return <div id="home" className="w-full">
-    <Sambutan className="p-5" />
-    <Fasilitas className="p-5" />
+    <Sambutan state={state} className="p-5" />
+    <Fasilitas state={state} className="p-5" />
     <ProgramStudi className="p-5" />
     <StaffPengajar className="p-5" />
     <BoardOfAdvisors className="p-5" />

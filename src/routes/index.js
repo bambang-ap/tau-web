@@ -5,16 +5,18 @@ import { Switch, Route, useHistory } from 'react-router-dom';
 import AkademikRoute from './Akademik';
 import Fasilitas from 'src/pages/Home/Fasilitas';
 import InformasiBerita from 'src/pages/Home/InformasiBerita';
+import Article from 'src/pages/Article';
 
 const Routes = ({ className }) => {
-	
+
 	const history = useHistory()
 	const { pathname } = window.location
 
 	useEffect(() => {
-		// if (pathname === '/')
-		// 	history.push('/home')
+		if (pathname === '/')
+			history.push('/home')
 		history.listen(a => {
+			window.scrollTo({ top: 0, behavior: 'smooth' })
 			// setTimeout(() => {
 			// 	const { Web: { activePath } } = store.getState()
 			// 	if (!activePath.includes(a.pathname))
@@ -30,6 +32,8 @@ const Routes = ({ className }) => {
 			<Route path="/akademik" component={AkademikRoute} />
 			<Route path="/fasilitas" component={Fasilitas} />
 			<Route path="/info" component={InformasiBerita} />
+			<Route path="/info/berita" component={InformasiBerita} />
+			<Route path="/info/berita/:url" component={Article} />
 			<Route path="/pendaftaran" component={() => <div className="ai-c flex flex-col p-15">
 				<h4>Formulir Pendaftaran</h4>
 				<div className="flex w-2/3 mt-3 brd-5 b-1 p-5 flex-col">
