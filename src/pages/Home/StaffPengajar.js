@@ -23,7 +23,7 @@ const StaffPengajar = ({ className, ...props }) => {
 		{isHome && <div className="flex w-1/4 jc-c ai-fs flex-col p-5">
 			<h4>Staff & Pengajar</h4>
 			<p className="mt-5 mb-5">{state.content}</p>
-			<Link onClick={'/akademik/staff'} className="b-1 p-2 pl-10 pr-10 brd-3 bc-light">Lihat Semua</Link>
+			<Link to="/akademik/staff" className="b-1 p-2 pl-10 pr-10 brd-3 bc-light">Lihat Semua</Link>
 		</div>}
 	</div>
 }

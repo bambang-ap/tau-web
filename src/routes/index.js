@@ -1,29 +1,30 @@
 import React, { useEffect } from 'react';
 import HomeRoute from './Home';
 import TentangRoute from './Tentang';
-import { Switch, Route, useHistory } from 'react-router-dom';
+import { Switch, Route, useHistory, Redirect } from 'react-router-dom';
 import AkademikRoute from './Akademik';
 import Fasilitas from 'src/pages/Home/Fasilitas';
-import InformasiBerita from 'src/pages/Home/InformasiBerita';
+import { useDispatch } from 'react-redux';
+import actionsWeb from 'src/redux/actions/web';
 import Article from 'src/pages/Article';
+import InformasiBerita from 'src/pages/Home/InformasiBerita';
+// import Article from 'src/pages/Article';
 
 const Routes = ({ className }) => {
-
 	const history = useHistory()
+	const dispatch = useDispatch()
 	const { pathname } = window.location
 
-	useEffect(() => {
+	const effect = () => {
 		if (pathname === '/')
 			history.push('/home')
-		history.listen(a => {
+		history.listen(() => {
 			window.scrollTo({ top: 0, behavior: 'smooth' })
-			// setTimeout(() => {
-			// 	const { Web: { activePath } } = store.getState()
-			// 	if (!activePath.includes(a.pathname))
-			// 		history.push('/404')
-			// }, 10)
+			dispatch(actionsWeb({ noBanner: false, noFooter: false }))
 		})
-	}, [history, pathname])
+	}
+
+	useEffect(effect, [])
 
 	return <div className={className}>
 		<Switch>
@@ -31,9 +32,9 @@ const Routes = ({ className }) => {
 			<Route path="/tentang" component={TentangRoute} />
 			<Route path="/akademik" component={AkademikRoute} />
 			<Route path="/fasilitas" component={Fasilitas} />
-			<Route path="/info" component={InformasiBerita} />
+			<Route path="/info" render={() => <Redirect to="/info/berita" />} exact />
 			<Route path="/info/berita" component={InformasiBerita} />
-			<Route path="/info/berita/:url" component={Article} />
+			<Route path="/info/career" component={() => { }} />
 			<Route path="/pendaftaran" component={() => <div className="ai-c flex flex-col p-15">
 				<h4>Formulir Pendaftaran</h4>
 				<div className="flex w-2/3 mt-3 brd-5 b-1 p-5 flex-col">
@@ -56,6 +57,7 @@ const Routes = ({ className }) => {
 			</div>} />
 			<Route path="/training" component={() => <div className="flex flex-1 jc-c p-30 f-10 c-grey-hard">Halaman Training center</div>} />
 			<Route path="/404" component={() => <div className="flex flex-1 jc-c p-30 f-30 c-grey-hard">404</div>} />
+			<Route path="/:url" component={Article} />
 		</Switch>
 	</div>
 }

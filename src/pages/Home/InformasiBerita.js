@@ -9,6 +9,7 @@ const InformasiBerita = ({ className, ...props }) => {
 		const { data: manage } = await getManage({ part: 'staff' })
 		const { data: { data } } = await getArticle()
 		setState({ ...manage, data })
+		console.log(data)
 	}
 	const effect = () => {
 		getData()
@@ -23,12 +24,12 @@ const InformasiBerita = ({ className, ...props }) => {
 					<div className="p-3 pr-4 pl-4">
 						<h5>{a.judul}</h5>
 						<div>{a.deskripsi}</div>
-						<Link to={'/info/berita/' + a.url} className="as-fs c-link">baca selengkapnya &gt;</Link>
+						<Link to={'/' + a.url} className="as-fs c-link">baca selengkapnya &gt;</Link>
 					</div>
 				</div>
 			</div>)}
 		</div>
-		{isHome && <Link onClick={'/info/berita'} className="b-1 p-2 pl-10 pr-10 brd-3 bc-light">Lihat Semua</Link>}
+		{isHome && <Link to="/info/berita" className="b-1 p-2 pl-10 pr-10 brd-3 bc-light">Lihat Semua</Link>}
 	</div>
 }
 

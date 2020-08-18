@@ -1,5 +1,6 @@
 const initState = {
-	activePath: []
+	noBanner: false,
+	noFooter: false
 }
 
 const reducerWeb = (state = initState, actions) => {
