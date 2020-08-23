@@ -19,7 +19,7 @@ const Routes = ({ className }) => {
 		if (pathname === '/')
 			history.push('/home')
 		history.listen(() => {
-			window.scrollTo({ top: 0, behavior: 'smooth' })
+			// window.scrollTo({ top: 0, behavior: 'smooth' })
 			dispatch(actionsWeb({ noBanner: false, noFooter: false }))
 		})
 	}

@@ -13,12 +13,12 @@ const App = () => {
   }, [dispatch])
 
   return <div className="flex flex-wrap w-full app">
-    <Header className="pl-10 pr-10 h-30 bb-1 pt-5 pb-5" />
+    {/* <Header className="pl-10 pr-10 h-30 bb-1 pt-5 pb-5" /> */}
     <div className="bg-white wrapper w-full pt-30">
       {!Web.noBanner && <Banner />}
       <Routes />
     </div>
-    {!Web.noFooter && <Kontak className="w-full p-15" />}
+    {!Web.noFooter && <Kontak className="p-15" />}
   </div>
 }
 

@@ -5,6 +5,24 @@
       "path": "/home"
     },
     {
+      "name": "Akademik",
+      "path": "/akademik",
+      "subMenu": [
+        {
+          "name": "Program Sarjana (S1)",
+          "path": "/s1"
+        },
+        {
+          "name": "Program Internasional",
+          "path": "/international"
+        },
+        {
+          "name": "Staff Pengajar",
+          "path": "/staff"
+        }
+      ]
+    },
+    {
       "name": "Tentang TAU",
       "path": "/tentang",
       "subMenu": [
@@ -23,88 +41,6 @@
         {
           "name": "Sertifikasi Akreditas",
           "path": "/sertifikasi"
-        }
-      ]
-    },
-    {
-      "name": "Akademik",
-      "path": "/akademik",
-      "subMenu": [
-        {
-          "name": "Program Sarjana (S1)",
-          "path": "/s1",
-          "subMenu": [
-            {
-              "name": "School Of Management & Leadership",
-              "path": "/management-leadership",
-              "subMenu": [
-                {
-                  "name": "Administrasi Bisnis",
-                  "path": "/bisnis"
-                },
-                {
-                  "name": "Akuntansi",
-                  "path": "/akutansi"
-                },
-                {
-                  "name": "Manajemen",
-                  "path": "/manajemen"
-                },
-                {
-                  "name": "Ilmu Komunikasi",
-                  "path": "/komunikasi"
-                }
-              ]
-            },
-            {
-              "name": "School Of Engineering & Technology",
-              "path": "/engineering-technology",
-              "subMenu": [
-                {
-                  "name": "Teknik Arsitek",
-                  "path": "/arsitek"
-                },
-                {
-                  "name": "Teknik Informatika",
-                  "path": "/ti"
-                },
-                {
-                  "name": " Teknik Elektro",
-                  "path": "/elektro"
-                },
-                {
-                  "name": "Teknik Sipil",
-                  "path": "/sipil"
-                },
-                {
-                  "name": "Sistem Informasi",
-                  "path": "/si"
-                },
-                {
-                  "name": "Teknik Perminyakan",
-                  "path": "/perminyakan"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Program Internasional",
-          "path": "/international",
-          "subMenu": [
-            {
-              "name": "Fast Track To Australian University",
-              "path": "/australian-university"
-            },
-            {
-              "name": " International Business Program",
-              "path": "/business"
-            }
-          ]
-        },
-        {
-          "name": "Staff Pengajar",
-          "path": "/staff"
         }
       ]
     },

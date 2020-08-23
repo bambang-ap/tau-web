@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { getManage, getS1Kategori, getS1 } from 'src/utils/api';
 
 const Header = ({ className, ...props }) => {
-	const { data: UI } = useSelector(state => state.UI)
+	const { data: { nav } } = useSelector(state => state.UI)
 	const [subMenuOpen, setSubMenuOpen] = useState({})
-
 	const openSubMenu = (id) => {
 		let menu = {}
 		let parent = id.split('-').filter(a => a !== "").map(a => a + "-")
@@ -15,7 +15,6 @@ const Header = ({ className, ...props }) => {
 		})
 		setSubMenuOpen({ ...menu })
 	}
-
 	const NavBar = (arr, id = "", prevPath = "") => {
 		const Menu = id === ""
 		return arr.map(
@@ -47,7 +46,7 @@ const Header = ({ className, ...props }) => {
 		</div>
 		{/* <div className="mr-20" /> */}
 		<div className="flex w-2/3">
-			{UI.nav && NavBar(UI.nav)}
+			{nav && NavBar(nav)}
 		</div>
 	</div>
 }
