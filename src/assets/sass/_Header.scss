@@ -1,4 +1,31 @@
-#header:not(.is-mobile) {
+#header {
+	@media screen and (max-width: 720px){
+		position: initial;
+		height: auto;
+		padding: 0;
+		flex-direction: column;
+		.menu-wrapper {
+			flex-direction: column;
+			.menu {
+				flex-direction: column;
+				align-self: flex-start;
+				border-bottom-width: 0 !important;
+				white-space: pre-wrap;
+				a {
+					padding: .5rem;
+				}
+				.link {
+					align-self: flex-start;
+				}
+				.sub-menu {
+					position: initial;
+					margin-left: 1rem;
+					border-width: 0;
+					&.tail:before {all: unset}
+				}
+			}
+		}
+	}
 	position: fixed;
 	z-index: 2;
 	.black {

@@ -25,6 +25,16 @@ export const postArticle = async params => {
 	return data
 }
 
+export const editArticle = async params => {
+	const { data } = await axios.post(API, { action: 'EditArticle', ...params })
+	return data
+}
+
+export const removeArticle = async params => {
+	const { data } = await axios.post(API, { action: 'RemoveArticle', ...params })
+	return data
+}
+
 export const getFacilities = async params => {
 	const { data } = await axios.post(API, { action: 'GetFasilitas', ...params })
 	return data
@@ -70,13 +80,13 @@ export const getProgramStudiKategori = async params => {
 	return data
 }
 
-export const updateGambar = async params => {
-	const { data } = await axios.post(API, { action: 'UpdateGambar', ...params })
+export const updateFile = async params => {
+	const { data } = await axios.post(API, { action: 'UpdateFile', ...params })
 	return data
 }
 
-export const getGambar = async params => {
-	const { data } = await axios.post(API, { action: 'GetGambar', ...params })
+export const getFiles = async params => {
+	const { data } = await axios.post(API, { action: 'GetFiles', ...params })
 	return data
 }
 
@@ -102,6 +112,26 @@ export const insertS1 = async params => {
 
 export const updateS1 = async params => {
 	const { data } = await axios.post(API, { action: 'UpdateS1', ...params })
+	return data
+}
+
+export const getBanner = async params => {
+	const { data } = await axios.post(API, { action: 'GetBanner', ...params })
+	return data
+}
+
+export const updateBanner = async params => {
+	const { data } = await axios.post(API, { action: 'UpdateBanner', ...params })
+	return data
+}
+
+export const getArticleSet = async params => {
+	const { data } = await axios.post(API, { action: 'GetArticleSet', ...params })
+	return data
+}
+
+export const setArticleSet = async params => {
+	const { data } = await axios.post(API, { action: 'SetArticleSet', ...params })
 	return data
 }
 

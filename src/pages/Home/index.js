@@ -14,13 +14,13 @@ const Home = props => {
   }
   useEffect(effect, [])
   return <div id="home" className="w-full">
-    <Sambutan className="p-5" />
-    <Fasilitas className="p-5" />
-    <ProgramStudi className="p-5" />
-    <StaffPengajar className="p-5" />
-    <BoardOfAdvisors className="p-5" />
-    <InformasiBerita className="p-5" />
-    <GaleriKegiatan className="p-5" />
+    <Sambutan className="xl:p-5" />
+    <Fasilitas className="xl:p-5" />
+    <ProgramStudi className="xl:p-5" />
+    <StaffPengajar className="xl:p-5" />
+    <BoardOfAdvisors className="xl:p-5" />
+    <InformasiBerita className="xl:p-5" />
+    <GaleriKegiatan className="xl:p-5" />
   </div>
 }
 

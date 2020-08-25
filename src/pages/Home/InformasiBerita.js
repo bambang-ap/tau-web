@@ -15,10 +15,10 @@ const InformasiBerita = ({ className, ...props }) => {
 		getData()
 	}
 	useEffect(effect, [])
-	return <div {...props} id="boa" className={`ai-c pt-5 flex flex-col ${className}`}>
+	return <div {...props} id="boa" className={`ai-c pt-3 pb-3 flex flex-col ${className}`}>
 		<h5>Informasi & Berita</h5>
 		<div className="mt-5 flex flex-wrap">
-			{(isHome ? state.data.filter((a, i) => i < 4) : state.data).rMap(a => <div className="flex flex-col w-1/4">
+			{(isHome ? state.data.filter((a, i) => i < 4) : state.data).rMap(a => <div className="flex flex-col w-full xl:w-1/4">
 				<div className="m-3 o-h b-1 content brd-3">
 					<img alt="" src={FILE_PATH + a.foto} />
 					<div className="p-3 pr-4 pl-4">

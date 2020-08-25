@@ -2,14 +2,15 @@ import React from 'react';
 
 const Kontak = ({ className, ...props }) => {
 	return <div {...props} id="kontak" className={`flex bc-blue ${className}`}>
-		<div className="c-light flex">
-			<div className="flex w-1/2">
-				<img alt="" src={require('src/assets/images/1-1.jpg')} />
+		<div className="c-light flex flex-wrap">
+			<div className="flex w-full xl:w-1/2">
+				<img className="w-full h-auto" alt="" src={require('src/assets/images/1-1.jpg')} />
 			</div>
-			<div className="flex flex-col ml-10 w-1/2">
-				<h5 className="mb-3">Kontak Kami</h5>
-				<h5 className="mb-3">Tanri Abeng University</h5>
-				<div className="mb-3">Jl. Swadarma Raya No.58, Ulujami, Pesanggrahan, Jakarta Selatan - 12250</div>
+
+			<div className="flex flex-wrap flex-col ml-10 w-full xl:w-1/2">
+				<h5 className="mb-3 flex">Kontak Kami</h5>
+				<h5 className="mb-3 flex">Tanri Abeng University</h5>
+				<div className="mb-3 flex">Jl. Swadarma Raya No.58, Ulujami, Pesanggrahan, Jakarta Selatan - 12250</div>
 				<div className="mb-3 flex jc-fs ai-c">
 					<i className="fa fa-phone flex w-7" />
 					<div className="flex">+62 21 5890 8888 atau (+62) 8123 729 0009</div>

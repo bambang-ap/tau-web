@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getManage, getS1Kategori, getS1 } from 'src/utils/api';
+import useWindowSize from 'src/utils/windowSize';
 
 const Header = ({ className, ...props }) => {
 	const { data: { nav } } = useSelector(state => state.UI)
@@ -38,16 +39,22 @@ const Header = ({ className, ...props }) => {
 			}
 		)
 	}
-
+	const [navOpen, setNavOpen] = useState(false)
+	const [maxWidth] = useWindowSize()
+	useEffect(() => {
+		if (maxWidth >= 720) {
+			setNavOpen(true)
+		}
+	}, [maxWidth])
 	return <div id="header" {...props} className={`w-full jc-sb flex bg-white ${className}`}>
 		{Object.keys(subMenuOpen).length > 0 && <div className="black" onMouseEnter={() => setSubMenuOpen({})} />}
-		<div className="w-1/3">
-			<img className="h-full w-auto" alt="" src={require('src/assets/images/logo-tau.png')} />
+		<div className="xl:w-1/3 flex jc-sb ai-c pr-3">
+			<img className="w-auto h-full" alt="" src={require('src/assets/images/logo-tau.png')} />
+			{maxWidth < 720 && <i style={{ cursor: 'pointer' }} onClick={() => setNavOpen(!navOpen)} className="p-2 bc-grey brd-2 ion-navicon-round f-7" />}
 		</div>
-		{/* <div className="mr-20" /> */}
-		<div className="flex w-2/3">
+		{navOpen && <div className={`flex menu-wrapper ${maxWidth < 720 ? 'p-5' : ''} xl:w-2/3`}>
 			{nav && NavBar(nav)}
-		</div>
+		</div>}
 	</div>
 }
 

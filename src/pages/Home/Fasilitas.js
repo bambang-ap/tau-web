@@ -15,7 +15,7 @@ const Fasilitas = ({ className, ...props }) => {
 	}
 	useEffect(effect, [])
 	return <div {...props} id="fasilitas" className={`flex flex-wrap jc-c ${className}`}>
-		{isHome && <div className="flex w-1/4 jc-c ai-fs flex-col p-5">
+		{isHome && <div className="flex w-full xl:w-1/4 jc-c ai-fs flex-col p-5">
 			<h4 onClick={() => console.log(state)}>Fasilitas</h4>
 			<p className="mt-5 mb-5">{state.content}</p>
 			<Link to={'/fasilitas'} className="b-1 p-2 pl-10 pr-10 brd-3 bc-light">Lihat Semua</Link>
@@ -25,7 +25,7 @@ const Fasilitas = ({ className, ...props }) => {
 				isHome ?
 					state.data.filter((a, i) => i < 3) :
 					state.data
-			).rMap(a => <div className="flex w-1/4 flex-col p-5">
+			).rMap(a => <div className="flex w-full xl:w-1/4 flex-col p-5">
 				<img className="brd-3" alt="" src={FILE_PATH + a.foto} />
 				<div className="mt-5">{a.nama}</div>
 			</div>)
