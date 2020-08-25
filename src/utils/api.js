@@ -3,8 +3,7 @@ import axios from "axios"
 const { BASE_URL } = require('src/env.json')
 
 const API = BASE_URL + "/api.php"
-export const IMG_PATH = BASE_URL + "/images/"
-export const IMG_ARTICLE = IMG_PATH + "article/"
+export const FILE_PATH = BASE_URL + "/files/"
 
 export const getManage = async params => {
 	const { data } = await axios.post(API, { action: 'GetManage', ...params })

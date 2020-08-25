@@ -1,5 +1,5 @@
 import React from 'react';
-import { IMG_PATH } from 'src/utils/api';
+import { FILE_PATH } from 'src/utils/api';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import HtmlParser from 'react-html-parser';
@@ -24,7 +24,7 @@ const S1 = ({ match, data: { id, nama, data } }) => {
 						return <Link className={`${program.id === match.params.jurusan ? '' : 'c-text'} pt-3 pb-3 pr-3`} to={`/akademik/${match.params.akademik}/${id}/${program.id}`}>{program.nama_prodi}</Link>
 					})}
 				</div>
-				<div className="p-5">{HtmlParser(jurusan[state.tab].replace(/\$IMG_PATH/g, IMG_PATH))}</div>
+				<div className="p-5">{HtmlParser(jurusan[state.tab].replace(/\$FILE_PATH/g, FILE_PATH))}</div>
 			</div>}
 		</div>
 	</div>

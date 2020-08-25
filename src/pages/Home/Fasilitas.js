@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getFacilities, getManage, IMG_PATH } from 'src/utils/api';
+import { getFacilities, getManage, FILE_PATH } from 'src/utils/api';
 import { Link } from 'react-router-dom';
 
 const Fasilitas = ({ className, ...props }) => {
@@ -26,7 +26,7 @@ const Fasilitas = ({ className, ...props }) => {
 					state.data.filter((a, i) => i < 3) :
 					state.data
 			).rMap(a => <div className="flex w-1/4 flex-col p-5">
-				<img className="brd-3" alt="" src={IMG_PATH + a.foto} />
+				<img className="brd-3" alt="" src={FILE_PATH + a.foto} />
 				<div className="mt-5">{a.nama}</div>
 			</div>)
 		}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import actionsWeb from 'src/redux/actions/web';
-import { getArticle, IMG_PATH, IMG_ARTICLE } from 'src/utils/api';
+import { getArticle, FILE_PATH } from 'src/utils/api';
 import HtmlParser from 'react-html-parser';
 
 const Article = ({ match: { params } }) => {
@@ -24,9 +24,9 @@ const Article = ({ match: { params } }) => {
 	}
 	return <div>
 		<h1>{state.judul}</h1>
-		<img alt="" src={IMG_PATH + state.foto} />
-		{parseHtml(state.artikel.replace(/\$IMG_PATH/g, IMG_ARTICLE))}
-		{/* {HtmlParser(state.artikel.replace(/\$IMG_PATH/g, IMG_PATH), {
+		<img alt="" src={FILE_PATH + state.foto} />
+		{parseHtml(state.artikel.replace(/\$FILE_PATH/g, FILE_PATH))}
+		{/* {HtmlParser(state.artikel.replace(/\$FILE_PATH/g, FILE_PATH), {
 			preprocessNodes: a => {
 				console.log(a)
 				return a

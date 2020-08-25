@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getManage, getArticle, IMG_PATH } from 'src/utils/api';
+import { getManage, getArticle, FILE_PATH } from 'src/utils/api';
 
 const InformasiBerita = ({ className, ...props }) => {
 	const isHome = window.location.pathname.includes('/home')
@@ -20,7 +20,7 @@ const InformasiBerita = ({ className, ...props }) => {
 		<div className="mt-5 flex flex-wrap">
 			{(isHome ? state.data.filter((a, i) => i < 4) : state.data).rMap(a => <div className="flex flex-col w-1/4">
 				<div className="m-3 o-h b-1 content brd-3">
-					<img alt="" src={IMG_PATH + a.foto} />
+					<img alt="" src={FILE_PATH + a.foto} />
 					<div className="p-3 pr-4 pl-4">
 						<h5>{a.judul}</h5>
 						<div>{a.deskripsi}</div>

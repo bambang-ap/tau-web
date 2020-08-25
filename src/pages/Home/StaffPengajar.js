@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getManage, getStaff, IMG_PATH } from 'src/utils/api';
+import { getManage, getStaff, FILE_PATH } from 'src/utils/api';
 import { Link } from 'react-router-dom';
 
 const StaffPengajar = ({ className, ...props }) => {
@@ -16,7 +16,7 @@ const StaffPengajar = ({ className, ...props }) => {
 	useEffect(effect, [])
 	return <div {...props} id="staff-pengajar" className={`flex flex-wrap ${className}`}>
 		{(isHome ? state.data.filter((a, i) => i < 3) : state.data).rMap(a => <div className="flex w-1/4 flex-col p-5">
-			<img className="brd-3" alt="" src={IMG_PATH + a.foto} />
+			<img className="brd-3" alt="" src={FILE_PATH + a.foto} />
 			<div className="mt-5">{a.nama}</div>
 			<div className="as-fs c-link SemiBoldItalic">{a.jabatan}</div>
 		</div>)}
