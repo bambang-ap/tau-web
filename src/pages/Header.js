@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getManage, getS1Kategori, getS1 } from 'src/utils/api';
 import useWindowSize from 'src/utils/windowSize';
 
 const Header = ({ className, ...props }) => {

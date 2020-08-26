@@ -28,7 +28,7 @@ const App = () => {
       {!Web.noBanner && <Banner />}
       <Routes />
     </div>
-    {/* {!Web.noFooter && <Kontak className="xl:p-15" />} */}
+    {!Web.noFooter && <Kontak className="xl:p-15" />}
   </div>
 }
 

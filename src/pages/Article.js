@@ -19,19 +19,14 @@ const Article = ({ match: { params } }) => {
 		dispatch(actionsWeb({ noBanner: true, noFooter: true }))
 	}
 	useEffect(effect, [])
-	const parseHtml = string => {
-		return HtmlParser(string)
+	const parseHtml = article => {
+		article = article.replace(/\$FILE_PATH/g, FILE_PATH)
+		return HtmlParser(article)
 	}
 	return <div>
 		<h1>{state.judul}</h1>
 		<img alt="" src={FILE_PATH + state.foto} />
-		{parseHtml(state.artikel.replace(/\$FILE_PATH/g, FILE_PATH))}
-		{/* {HtmlParser(state.artikel.replace(/\$FILE_PATH/g, FILE_PATH), {
-			preprocessNodes: a => {
-				console.log(a)
-				return a
-			}
-		})} */}
+		{parseHtml(state.artikel)}
 	</div>
 }
 

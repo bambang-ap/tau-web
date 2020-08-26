@@ -50,43 +50,43 @@
     },
     {
       "name": "Pendaftaran",
-      "path": "/pendaftaran",
+      "path": "",
       "subMenu": [
         {
           "name": "Daftar Online",
-          "path": "/online"
+          "path": "/daftar-online"
         },
         {
           "name": "Pendaftaran Beasiswa Berprestasi",
-          "path": "/beasiswa"
+          "path": "/daftar-beasiswa"
         }
       ]
     },
     {
       "name": "Info & Berita",
-      "path": "/info",
+      "path": "",
       "subMenu": [
         {
           "name": "Informasi & Berita TAU",
-          "path": "/berita"
+          "path": "/info/berita"
         },
         {
           "name": "Kemahasiswaan",
-          "path": "/mhs",
+          "path": "",
           "subMenu": [
             {
               "name": "Form Mahasiswa",
-              "path": "/form"
+              "path": "/form-mhs"
             },
             {
-              "name": "Tracker Study",
-              "path": "/tracker"
+              "name": "Tracer Study",
+              "path": "/studi-tracer"
             }
           ]
         },
         {
           "name": "Career",
-          "path": "/career"
+          "path": "/karir"
         }
       ]
     },
