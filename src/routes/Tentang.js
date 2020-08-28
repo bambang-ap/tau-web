@@ -7,7 +7,6 @@ import Sertifikasi from 'src/pages/Tentang/Sertifikasi'
 import Visi from 'src/pages/Tentang/Visi'
 
 const TentangRoute = ({ match }) => {
-	console.log(match)
 	return <div className="pr-20 pl-20">
 		<Tentang />
 		<Switch>
