@@ -13,7 +13,7 @@ const Sambutan = ({ className, ...props }) => {
 		getData()
 	}
 	useEffect(effect, [])
-	return <div {...props} id="sambutan" className={`ai-c flex flex-col ${className}`}>
+	return <div {...props} id="sambutan" className={`pt-3 ai-c flex flex-col ${className}`}>
 		<h4>Sambutan Rektor TAU</h4>
 		<div className="flex flex-wrap ai-c mt-5 p-5 xl:pl-15 xl:pr-15">
 			<div className="flex brd-3 o-h jc-c w-full h-auto xl:w-1/5">

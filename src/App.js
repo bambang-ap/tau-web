@@ -13,15 +13,16 @@ const App = () => {
   useEffect(() => {
     dispatch(actionUi())
   }, [dispatch])
-  const [maxWidth] = useWindowSize()
+  const [maxWidth, , isMobile] = useWindowSize()
   const [height, setHeight] = useState('30')
-  useEffect(() => {
-    if (maxWidth >= 720) {
-      setHeight('30')
-    } else {
+  const effect = () => {
+    if (isMobile) {
       setHeight('0')
+    } else {
+      setHeight('30')
     }
-  }, [maxWidth])
+  }
+  useEffect(effect, [maxWidth])
   return <div className="flex flex-col w-full app">
     <Header className={`pl-10 pr-10 h-${height} bb-1 pt-5 pb-5`} />
     <div className={`bg-white wrapper w-full pt-${height}`}>

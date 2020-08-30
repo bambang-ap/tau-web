@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { getProgramStudi, getManage, getS1, FILE_PATH } from 'src/utils/api';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import ReactElasticCarousel from 'react-elastic-carousel';
+import useWindowSize from 'src/utils/windowSize';
 
 const ProgramStudi = ({ className, ...props }) => {
 	const [state, setState] = useState({ data: [] })
+	const [, , isMobile] = useWindowSize()
 	const getData = async () => {
 		const { data: manage } = await getManage({ part: 's1' })
 		const { data: program } = await getProgramStudi()
@@ -15,13 +18,13 @@ const ProgramStudi = ({ className, ...props }) => {
 		getData()
 	}
 	useEffect(effect, [])
-	return <div {...props} id="program-studi" className={`ai-c flex wrap flex-col ${className}`}>
+	return <div {...props} id="program-studi" className={`mt-3 ai-c flex wrap flex-col ${className}`}>
 		<h4>Program Studi</h4>
 		<h5 className="mt-5 mb-5">{state.content}</h5>
 		<Link to="/akademik/s1" className="b-1 p-2 pl-10 pr-10 brd-3 bc-light">Lihat Semua</Link>
-		<div className="mt-5 flex-wrap flex">
-			{state.data.filter((a, i) => i < 7).rMap(jurusan =>
-				<div className="flex flex-col w-full xl:w-1/4">
+		<ReactElasticCarousel focusOnSelect={false} showArrows={false} className="mt-3 mb-3" itemsToShow={isMobile ? 1 : 4}>
+			{state.data.rMap(jurusan =>
+				<div className="flex flex-col w-full">
 					<div className="m-3 o-h brd-3">
 						<img alt="" src={FILE_PATH + jurusan.foto_prodi} />
 						<div className="p-3 pr-4 pl-4">
@@ -31,7 +34,7 @@ const ProgramStudi = ({ className, ...props }) => {
 						</div>
 					</div>
 				</div>)}
-		</div>
+		</ReactElasticCarousel>
 	</div>
 }
 

@@ -1,0 +1,21 @@
+.rec-carousel-wrapper {
+	.rec-slider-container {
+		margin: 0 !important;
+	}
+	.rec-pagination {
+		.rec-dot {
+			box-shadow: 0 0 #{$fontSize}px #{$fontSize * 2}px $greyHard;
+			&.rec-dot_active {
+				background-color: $greyHard;
+				box-shadow: 0 0 #{$fontSize}px #{$fontSize * 2}px $greyHard
+			}
+		}
+	}
+	&.pagination-inside {
+		position: relative;
+		.rec-pagination {
+			position: absolute;
+			bottom: #{$fontSize}rem;
+		}
+	}
+}

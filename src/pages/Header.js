@@ -39,19 +39,24 @@ const Header = ({ className, ...props }) => {
 		)
 	}
 	const [navOpen, setNavOpen] = useState(false)
-	const [maxWidth] = useWindowSize()
-	useEffect(() => {
-		if (maxWidth >= 720) {
+	const [maxWidth, , isMobile] = useWindowSize()
+	const effect = () => {
+		if (isMobile) {
+			setNavOpen(false)
+		} else {
 			setNavOpen(true)
 		}
-	}, [maxWidth])
+	}
+	useEffect(effect, [maxWidth])
 	return <div id="header" {...props} className={`w-full jc-sb flex bg-white ${className}`}>
 		{Object.keys(subMenuOpen).length > 0 && <div className="black" onMouseEnter={() => setSubMenuOpen({})} />}
 		<div className="xl:w-1/3 flex jc-sb ai-c pr-3">
-			<img className="w-auto h-full" alt="" src={require('src/assets/images/logo-tau.png')} />
-			{maxWidth < 720 && <i style={{ cursor: 'pointer' }} onClick={() => setNavOpen(!navOpen)} className="p-2 bc-grey brd-2 ion-navicon-round f-7" />}
+			<Link to="/home">
+				<img style={{ transform: 'scale(.8)', transformOrigin: 'center left' }} className="w-auto h-full" alt="" src={require('src/assets/images/logo-tau.png')} />
+			</Link>
+			{isMobile && <i style={{ cursor: 'pointer' }} onClick={() => setNavOpen(!navOpen)} className="p-2 bc-grey brd-2 ion-navicon-round f-7" />}
 		</div>
-		{navOpen && <div className={`flex menu-wrapper ${maxWidth < 720 ? 'p-5' : ''} xl:w-2/3`}>
+		{navOpen && <div className={`flex flex-1 menu-wrapper ${isMobile ? 'p-5' : ''}`}>
 			{nav && NavBar(nav)}
 		</div>}
 	</div>

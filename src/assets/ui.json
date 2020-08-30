@@ -1,7 +1,7 @@
 {
   "nav": [
     {
-      "name": "Home",
+      "name": "Beranda",
       "path": "/home"
     },
     {
@@ -85,7 +85,7 @@
           ]
         },
         {
-          "name": "Career",
+          "name": "Karir",
           "path": "/karir"
         }
       ]

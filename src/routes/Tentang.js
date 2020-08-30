@@ -1,10 +1,10 @@
 import React from 'react'
 import Sejarah from 'src/pages/Tentang/Sejarah'
 import { Switch, Route, Redirect } from "react-router-dom"
-import Tentang from 'src/pages/Tentang'
 import Strukutur from 'src/pages/Tentang/Struktur'
 import Sertifikasi from 'src/pages/Tentang/Sertifikasi'
 import Visi from 'src/pages/Tentang/Visi'
+import Tentang from 'src/pages/Tentang'
 
 const TentangRoute = ({ match }) => {
 	return <div className="pr-20 pl-20">

@@ -1,1 +1,11 @@
-tentang di minimalisasi lagi
+// tentang di minimalisasi lagi
+// semua bahasa indo
+// sliding content slider info true
+// banner sliding
+// banner mobile & banner desktop
+// kontent di home bisa slide
+// kontent home slide jadi cuman 1
+// radius web kurangin -> 0.35rem
+// mobile navbar hide init
+
+kontak kirim send email, request api send email to aldi

@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import HomeRoute from './Home';
-import TentangRoute from './Tentang';
 import { Switch, Route, useHistory, Redirect } from 'react-router-dom';
 import AkademikRoute from './Akademik';
 import Fasilitas from 'src/pages/Home/Fasilitas';
@@ -9,6 +8,9 @@ import actionsWeb from 'src/redux/actions/web';
 import Article from 'src/pages/Article';
 import InformasiBerita from 'src/pages/Home/InformasiBerita';
 import RedirectArticle from 'src/components/RedirectArticle';
+import { Button } from 'src/components/Button';
+import { Input } from 'src/components/Input';
+import Tentang from 'src/pages/Tentang';
 // import Article from 'src/pages/Article';
 
 const Routes = ({ className }) => {
@@ -30,7 +32,8 @@ const Routes = ({ className }) => {
 	return <div className={className}>
 		<Switch>
 			<Route path="/home" component={HomeRoute} />
-			<Route path="/tentang" component={TentangRoute} />
+			<Route path="/tentang" exact component={() => <Redirect to="/tentang/visi" />} />
+			<Route path="/tentang/:part" component={Tentang} />
 			<Route path="/akademik" component={AkademikRoute} />
 			<Route path="/fasilitas" component={Fasilitas} />
 			<Route path="/info" render={() => <Redirect to="/info/berita" />} exact />
@@ -42,17 +45,17 @@ const Routes = ({ className }) => {
 					<div className="flex mb-3 ai-c">
 						<div className="flex flex-1">Nama Lengkap<i style={{ color: 'red' }}>*</i></div>
 						<div className="flex flex-1">
-							<input className="brd-3 b-1 p-4 mb-3 flex-1" />
+							<Input />
 						</div>
 					</div>
 					<div className="flex mb-3 ai-c">
 						<div className="flex flex-1">Tanggal Lahir<i style={{ color: 'red' }}>*</i></div>
 						<div className="flex flex-1">
-							<input className="brd-3 b-1 p-4 mb-3 flex-1" />
+							<Input />
 						</div>
 					</div>
 					<div className="flex mb-3 jc-fe">
-						<button className="p-2 pl-20 pr-20 brd-3 c-light bc-link">DAFTAR</button>
+						<Button>DAFTAR</Button>
 					</div>
 				</div>
 			</div>} />

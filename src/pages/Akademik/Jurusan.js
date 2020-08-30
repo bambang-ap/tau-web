@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from 'src/components/Button';
 
 const Jurusan = ({ match, ...p }) => {
 	const { akademik, program, jurusan } = match.params
@@ -13,7 +14,7 @@ const Jurusan = ({ match, ...p }) => {
 	return <div className="flex p-10">
 		<div className="flex flex-1 flex-col">
 			<div className="flex as-fe w-5/6 pb-5">
-				{Tabs.rMap((t, i) => <button onClick={() => setTabIndex(i)} className={`flex flex-1 jc-c bb-2 p-5 ${tabIndex === i && 'bb-3-link c-link'}`}>{t}</button>)}
+				{Tabs.rMap((t, i) => <Button onClick={() => setTabIndex(i)} className={`${tabIndex === i && 'bb-3-link c-link'}`}>{t}</Button>)}
 			</div>
 			<div className="flex flex-1">
 				<div className="flex pr-10 br-2 flex-col">
