@@ -13,7 +13,7 @@ const Textarea = styled.textarea
 	.attrs(
 		() => {
 			return {
-				className: "w-full brd-1 p-4 mb-3"
+				className: "w-full c-text brd-1 p-4 mb-3"
 			}
 		}
 	)``

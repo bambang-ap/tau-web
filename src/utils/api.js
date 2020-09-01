@@ -5,6 +5,12 @@ const { BASE_URL } = require('src/env.json')
 const API = BASE_URL + "/api.php"
 export const FILE_PATH = BASE_URL + "/files/"
 
+export const sendEmailKontak = async params => {
+	const url = "https://keuangan.ptkadetech.com/api/kontak-email-post"
+	const { data } = await axios.post(url, { token: 'f0b784153e33e54350e95b4688ef9901', ...params })
+	return data
+}
+
 export const getManage = async params => {
 	const { data } = await axios.post(API, { action: 'GetManage', ...params })
 	return data

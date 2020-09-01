@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Input, Textarea } from 'src/components/Input';
 import { Button } from 'src/components/Button';
+import { sendEmailKontak, getManage } from 'src/utils/api';
 
 const Kontak = ({ className, ...props }) => {
+	const [state, _] = useState({})
+	const [manage, setManage] = useState({})
+	const setState = v => _({ ...state, ...v })
+	const sendEmail = async () => {
+		const { status, message } = sendEmailKontak(state)
+		if (status) _({})
+		alert(message)
+	}
+	const getData = async () => {
+		const { status, data } = await getManage()
+		if (status) setManage(
+			data.reduce((parts, part) => {
+				parts[part.part] = part.content
+				return parts
+			}, {})
+		)
+	}
+	const effect = () => {
+		getData()
+	}
+	useEffect(effect, [state])
 	return <div {...props} id="kontak" className={`pt-3 ai-c c-light flex flex-col bc-blue ${className}`}>
 		<h5>Kontak kami</h5>
 		<div className="flex flex-wrap">
@@ -18,22 +40,22 @@ const Kontak = ({ className, ...props }) => {
 				/>
 			</div>
 			<div className="p-5 flex flex-col w-full xl:w-1/2">
-				<h5>Tanri Abeng University</h5>
-				<div>Jl. Swadarma Raya No.58, Ulujami, Pesanggrahan, Jakarta Selatan - 12250</div>
+				<h5>{manage.kontakUnivName}</h5>
+				<div>{manage.kontakAlamat}</div>
 				<div className="flex jc-fs ai-c">
 					<i className="fa fa-phone flex w-7" />
-					<div className="flex">+62 21 5890 8888 atau (+62) 8123 729 0009</div>
+					<div className="flex">{manage.kontakPhone1} atau {manage.kontakPhone2}</div>
 				</div>
 				<div className="flex jc-fs ai-c">
 					<i className="fa fa-envelope flex w-7" />
-					<div className="flex">addmission@tau.ac.id</div>
+					<div className="flex">{manage.kontakEmail}</div>
 				</div>
-				<h5 className="mb-3">Your Details</h5>
-				<div className="mb-3">Let us know how to get back to you. Feel free to ask a question or simply leave a comment.</div>
-				<Input placeholder="Name" />
-				<Input placeholder="Email" />
-				<Textarea placeholder="Comment or Questions" />
-				<Button className="as-fs">KIRIM</Button>
+				<h5 className="mb-3">{manage.kontakDetailTitle}</h5>
+				<div className="mb-3">{manage.kontakDetails}</div>
+				<Input onBlur={e => setState({ name: e.target.value })} placeholder="Name" />
+				<Input onBlur={e => setState({ email: e.target.value })} placeholder="Email" />
+				<Textarea onBlur={e => setState({ comment: e.target.value })} placeholder="Comment or Questions" />
+				<Button onClick={sendEmail} className="as-fs">KIRIM</Button>
 			</div>
 		</div>
 	</div>
