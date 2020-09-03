@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import actionsWeb from 'src/redux/actions/web';
 import { getArticle, FILE_PATH } from 'src/utils/api';
 import HtmlParser from 'react-html-parser';
+import useWindowSize from 'src/utils/windowSize';
 
 const Article = ({ match: { params } }) => {
 	const [state, setState] = useState({ artikel: '' })
@@ -23,10 +24,20 @@ const Article = ({ match: { params } }) => {
 		article = article.replace(/\$FILE_PATH/g, FILE_PATH)
 		return HtmlParser(article)
 	}
-	return <div>
-		<h1>{state.judul}</h1>
-		<img alt="" src={FILE_PATH + state.foto} />
-		{parseHtml(state.artikel)}
+	const [, , isMobile] = useWindowSize()
+	return <div className={`p-3 flex flex-col`}>
+		<div className={`flex ${isMobile ? 'flex-col-reverse' : ''}`}>
+			<div className={`w-full ${!isMobile && 'pr-3'}`}>
+				<img className="w-full h-auto" alt="" src={FILE_PATH + state.foto} />
+			</div>
+			<div className={`${isMobile ? '' : 'as-fe w-2/3'}`}>
+				<h1>{state.judul}</h1>
+				<h5>{state.tgl}</h5>
+			</div>
+		</div>
+		<div className="pt-5 pb-5">
+			{parseHtml(state.artikel)}
+		</div>
 	</div>
 }
 
