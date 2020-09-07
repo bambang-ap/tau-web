@@ -4,10 +4,16 @@
   "private": true,
   "homepage": "https://web.kadetech.tech",
   "dependencies": {
+    "@bbob/core": "^2.5.8",
+    "@bbob/html": "^2.5.8",
+    "@bbob/preset-html5": "^2.5.8",
+    "@bbob/preset-react": "^2.5.8",
+    "@bbob/react": "^2.5.8",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.0",
+    "bbcode-to-react": "^0.2.9",
     "history": "^5.0.0",
     "moment": "^2.24.0",
     "node-sass": "^4.13.0",
@@ -24,7 +30,7 @@
     "styled-components": "^5.1.1"
   },
   "scripts": {
-    "sass":"sass --watch sass/index.scss public/style.css",
+    "sass": "sass --watch sass/index.scss public/style.css",
     "env:prod": "node scripts/set-environment.js release",
     "env:dev": "node scripts/set-environment.js developement",
     "start": "yarn env:dev && react-scripts start",

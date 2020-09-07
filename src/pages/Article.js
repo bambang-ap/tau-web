@@ -4,6 +4,8 @@ import actionsWeb from 'src/redux/actions/web';
 import { getArticle, FILE_PATH } from 'src/utils/api';
 import HtmlParser from 'react-html-parser';
 import useWindowSize from 'src/utils/windowSize';
+import bbobHTML from '@bbob/html'
+import presetHtml from '@bbob/preset-html5'
 
 const Article = ({ match: { params } }) => {
 	const [state, setState] = useState({ artikel: '' })
@@ -13,15 +15,15 @@ const Article = ({ match: { params } }) => {
 		if (article) {
 			setState(article)
 		}
-		console.log(article)
 	}
 	const effect = () => {
 		getData()
-		dispatch(actionsWeb({ noBanner: true, noFooter: true }))
+		dispatch(actionsWeb({ noBanner: true/* , noFooter: true */ }))
 	}
 	useEffect(effect, [])
 	const parseHtml = article => {
 		article = article.replace(/\$FILE_PATH/g, FILE_PATH)
+		article = bbobHTML(article, presetHtml())
 		return HtmlParser(article)
 	}
 	const [, , isMobile] = useWindowSize()

@@ -13,7 +13,7 @@ const InformasiBerita = ({ className, ...props }) => {
 		const { data: { data } } = await getArticle()
 		setState({ ...manage, data })
 	}
-	const Items = (isHome ? state.data.filter((a, i) => i < 8) : state.data).rMap(a => <div className={`flex ${isMobile ? 'w-full' : 'w-1/4'} flex-col`}>
+	const Items = (isHome ? state.data.filter((a, i) => i < 8) : state.data).rMap(a => <div className={`flex ${isMobile ? 'w-full' : !isHome && 'w-1/4'} flex-col`}>
 		<div className="m-3 o-h b-1 content brd-3">
 			<img alt="" src={FILE_PATH + a.foto} />
 			<div className="p-3 pr-4 pl-4">
