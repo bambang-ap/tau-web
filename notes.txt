@@ -15,7 +15,7 @@ Web
 // - Advisors name kasih shadow
 // - Fasilitas dll kasih width & height fix
 // - spacing program studi & staff pengajar terlalu jauh
-- nav bar active not consistent
+// - nav bar active not consistent
 // - mobile view bars no background
 // - sizing foto & text di cek2 dulu
 
