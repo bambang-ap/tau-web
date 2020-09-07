@@ -13,8 +13,8 @@ const StaffPengajar = ({ className, ...props }) => {
 		const { data } = await getStaff()
 		setState({ ...manage, data })
 	}
-	const Items = state.data.rMap(a => <div className={`flex flex-col p-5 ${isHome ? '' : 'w-1/4'}`}>
-		<img className="brd-3" alt="" src={FILE_PATH + a.foto} />
+	const Items = state.data.rMap(a => <div className={`flex o-h flex-col p-5 ${isHome ? '' : 'w-1/4'}`}>
+		<img className="brd-3 h-50 w-auto as-c" alt="" src={FILE_PATH + a.foto} />
 		<div className="mt-5">{a.nama}</div>
 		<div className="as-fs c-link SemiBoldItalic">{a.jabatan}</div>
 	</div>)

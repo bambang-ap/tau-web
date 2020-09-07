@@ -17,8 +17,8 @@ const Fasilitas = ({ className, ...props }) => {
 		getData()
 	}
 	useEffect(effect, [])
-	const Items = state.data.rMap(a => <div className={`flex ${isHome ? '' : isMobile ? 'w-full' : 'w-1/4'} flex-col p-5`}>
-		<img className="brd-3" alt="" src={FILE_PATH + a.foto} />
+	const Items = state.data.rMap(a => <div className={`flex ${isHome ? '' : isMobile ? 'w-full' : 'w-1/4'} o-h flex-col p-5`}>
+		<img className="h-50 w-auto as-c brd-3" alt="" src={FILE_PATH + a.foto} />
 		<div className="mt-5">{a.nama}</div>
 	</div>)
 	return <div {...props} id="fasilitas" className={`mb-3 flex flex-wrap jc-c ${className}`}>

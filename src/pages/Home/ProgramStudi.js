@@ -25,8 +25,8 @@ const ProgramStudi = ({ className, ...props }) => {
 		<ReactElasticCarousel focusOnSelect={false} showArrows={false} className="mt-3 mb-3" itemsToShow={isMobile ? 1 : 4}>
 			{state.data.rMap(jurusan =>
 				<div className="flex flex-col w-full">
-					<div className="m-3 o-h brd-3">
-						<img alt="" src={FILE_PATH + jurusan.foto_prodi} />
+					<div className="m-3 o-h brd-3 flex flex-col">
+						<img alt="" className="h-50 w-auto as-c" src={FILE_PATH + jurusan.foto_prodi} />
 						<div className="p-3 pr-4 pl-4">
 							<h5>{jurusan.nama_prodi}</h5>
 							<div>{jurusan.deskripsi_prodi}</div>

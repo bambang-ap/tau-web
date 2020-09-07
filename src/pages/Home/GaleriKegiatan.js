@@ -17,15 +17,13 @@ const GaleriKegiatan = ({ className, staticContext, ...props }) => {
 		if (status) setDataGaleri(data)
 		if (statusManage) setDeskripsiGaleri(content)
 	}
-	const Items = dataGaleri.rMap(({ nama, deskripsi, media, is_video }) => <div className="p-3">
-		<div className="flex flex-col b-1 content brd-3 o-h">
-			{is_video === '1' ? <video controls>
-				<source src={FILE_PATH + media} />
-			</video> : <img alt="" src={FILE_PATH + media} />}
-			<div className="p-3 pr-4 pl-4">
-				<h5>{nama}</h5>
-				<div>{deskripsi}</div>
-			</div>
+	const Items = dataGaleri.rMap(({ nama, deskripsi, media, is_video }) => <div className="m-3 flex flex-col b-1 w-full content brd-3 o-h">
+		{is_video === '1' ? <video className="w-auto as-c flex h-50" controls>
+			<source src={FILE_PATH + media} />
+		</video> : <img className="w-auto as-c flex h-50" alt="" src={FILE_PATH + media} />}
+		<div className="p-3 pr-4 pl-4">
+			<h5>{nama}</h5>
+			<div>{deskripsi}</div>
 		</div>
 	</div>)
 	const effect = () => {

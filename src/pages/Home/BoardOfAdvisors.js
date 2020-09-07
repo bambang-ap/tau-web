@@ -29,8 +29,8 @@ const BoardOfAdvisors = ({ className, staticContext, ...props }) => {
 			<ReactElasticCarousel className="mb-3" itemsToShow={isMobile ? 1 : 4} showArrows={false}>
 				{dataAdv.rMap(({ nama_advisors, foto_advisors }) => <div className="flex w-full p-3 relative flex-col">
 					<div className="flex flex-col b-1 content brd-3 o-h">
-						<img alt="" className="w-full h-auto" src={FILE_PATH + foto_advisors} />
-						<h5 className="absolute c-light name">{nama_advisors}</h5>
+						<img alt="" className="w-auto brd-1 h-50 as-c" src={FILE_PATH + foto_advisors} />
+						<h5 style={{ textShadow: "3px 3px rgba(50, 50, 50, 0.58)" }} className="absolute c-light name">{nama_advisors}{nama_advisors}{nama_advisors}</h5>
 					</div>
 				</div>)}
 			</ReactElasticCarousel>

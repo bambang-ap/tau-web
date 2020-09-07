@@ -23,10 +23,9 @@ const Header = ({ className, ...props }) => {
 				const viewPath = prevPath + path
 				return subMenu ?
 					<div className="menu flex flex-1 relative as-c" key={i}>
-						<Link className={`${Menu && 'jc-c'} relative flex ai-c jc-sb flex flex-1 link ${window.location.href.includes(viewPath) && 'active'}`} onMouseEnter={() => openSubMenu(viewId)} to={viewPath}>
+						<Link className={`${Menu && 'jc-c'} relative flex ai-c jc-sb flex flex-1 link ${window.location.href.includes(viewPath) && path !== "" && 'active'}`} onMouseEnter={() => openSubMenu(viewId)} to={viewPath}>
 							<div>{name}</div>
 							{!Menu && <i className="ml-3 c-grey fa fa-chevron-right" />}
-							{/* {Menu && subMenuOpen[viewId] && <i style={{ bottom: -5 }} className="f-5 absolute ml-3 c-grey fa fa-chevron-up" />} */}
 						</Link>
 						<div className={`sub-menu ${Menu && 'tail'}`} style={{ display: subMenuOpen[viewId] ? 'block' : 'none' }}>
 							{NavBar(subMenu, viewId, viewPath)}
@@ -54,7 +53,7 @@ const Header = ({ className, ...props }) => {
 			<Link to="/home">
 				<img style={{ transform: 'scale(.8)', transformOrigin: 'center left' }} className="w-auto h-full" alt="" src={require('src/assets/images/logo-tau.png')} />
 			</Link>
-			{isMobile && <i style={{ cursor: 'pointer' }} onClick={() => setNavOpen(!navOpen)} className="p-2 bc-grey brd-2 ion-navicon-round f-7" />}
+			{isMobile && <i style={{ cursor: 'pointer' }} onClick={() => setNavOpen(!navOpen)} className="p-2 bc-light brd-2 ion-navicon-round f-7" />}
 		</div>
 		{navOpen && <div className={`flex flex-1 menu-wrapper ${isMobile ? 'p-5' : ''}`}>
 			{nav && NavBar(nav)}
