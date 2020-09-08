@@ -9,10 +9,10 @@ import useWindowSize from 'src/utils/windowSize';
 const S1 = ({ match, data: { id, nama, data = [] } }) => {
 	const [, , isMobile] = useWindowSize()
 	console.log(isMobile)
-	const [state, _] = useState({ tab: 'visi_prodi' })
+	const [state, _] = useState({ tab: 'deskripsi_prodi' })
 	const setState = v => _({ ...state, ...v })
 	const jurusan = data.filter(({ id }) => id === match.params.jurusan)[0]
-	const tabs = ['visi_prodi', 'misi_prodi', 'kompetensi_prodi', 'kurikulum_prodi']
+	const tabs = ['deskripsi_prodi', 'visi_prodi', 'misi_prodi', 'kompetensi_prodi', 'kurikulum_prodi', 'dosen_prodi']
 	return <div className="p-3">
 		<h5 className="ta-c mb-3">{nama}</h5>
 		{jurusan && <div className="flex flex-wrap flex-col xl:flex-row">
