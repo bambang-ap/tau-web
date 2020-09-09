@@ -32,7 +32,7 @@ const Header = ({ className, ...props }) => {
 						</div>
 					</div> :
 					<div className="menu flex flex-1 relative as-c" key={i}>
-						<Link className={`${Menu && 'jc-c'} flex flex-1 link ${window.location.href.includes(viewPath) && 'active'}`} onMouseEnter={() => openSubMenu(viewId)} to={viewPath}>{name}</Link>
+						<Link /* onClick={() => setNavOpen(!navOpen)} */ className={`${Menu && 'jc-c'} flex flex-1 link ${window.location.href.includes(viewPath) && 'active'}`} onMouseEnter={() => openSubMenu(viewId)} to={viewPath}>{name}</Link>
 					</div>
 			}
 		)
