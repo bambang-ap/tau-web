@@ -8,3 +8,5 @@ String.prototype.replacePath = function (toPath) {
 	const regex = new RegExp(FILE_PATH, 'g')
 	return this.replace(regex, '$FILE_PATH')
 }
+
+export const substr = (txt = '', length) => txt.length > length ? `${txt.substr(0, 75)}...` : txt

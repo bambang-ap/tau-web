@@ -4,9 +4,10 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ReactElasticCarousel from 'react-elastic-carousel';
 import useWindowSize from 'src/utils/windowSize';
+import { substr } from 'src/utils/paths';
 
 const ProgramStudi = ({ className, ...props }) => {
-	const [state, setState] = useState({ data: [] })
+	const [state, setState] = useState({ data: [], content: '' })
 	const [, , isMobile] = useWindowSize()
 	const getData = async () => {
 		const { data: manage } = await getManage({ part: 's1' })
@@ -20,7 +21,7 @@ const ProgramStudi = ({ className, ...props }) => {
 	useEffect(effect, [])
 	return <div {...props} id="program-studi" className={`mt-3 ai-c flex wrap flex-col ${className}`}>
 		<h4>Program Studi</h4>
-		<h5 className="mt-5 mb-5">{state.content}</h5>
+		<h5 className="mt-5 mb-5">{substr(state.content, 75)}</h5>
 		<Link to="/akademik/s1" className="b-1 p-2 pl-10 pr-10 brd-3 bc-light">Lihat Semua</Link>
 		<ReactElasticCarousel focusOnSelect={false} showArrows={false} className="mt-3 mb-3" itemsToShow={isMobile ? 1 : 4}>
 			{state.data.rMap(jurusan =>
@@ -29,7 +30,7 @@ const ProgramStudi = ({ className, ...props }) => {
 						<img alt="" className="h-50 w-auto as-c" src={FILE_PATH + jurusan.foto_prodi} />
 						<div className="p-3 pr-4 pl-4">
 							<h5>{jurusan.nama_prodi}</h5>
-							<div>{jurusan.deskripsi_prodi}</div>
+							<div>{substr(jurusan.deskripsi_prodi, 150)}</div>
 							<Link to={`/akademik/s1/${jurusan.id_program}/${jurusan.id}`} className="as-fs c-link">baca selengkapnya &gt;</Link>
 						</div>
 					</div>
