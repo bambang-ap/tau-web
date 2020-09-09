@@ -44,7 +44,7 @@ const S1 = ({ match, data: { id, nama, data = [] } }) => {
 							onClick={() => setState({ tab: tab })}>{tab.replace(/_\w+/g, '').ucwords()}</div>)}
 					</div>}
 				<div style={{ overflowWrap: 'anywhere', textAlign: 'justify' }} className="flex flex-wrap p-3 xl:p-5">
-					<div>{HtmlParser(jurusan[state.tab].replace(/\$FILE_PATH/g, FILE_PATH))}</div>
+					<div className="content-berita">{HtmlParser(jurusan[state.tab].replace(/\$FILE_PATH/g, FILE_PATH))}</div>
 				</div>
 			</div>
 		</div>

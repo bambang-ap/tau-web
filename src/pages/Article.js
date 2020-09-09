@@ -27,7 +27,7 @@ const Article = ({ match: { params } }) => {
 		return HtmlParser(article)
 	}
 	const [, , isMobile] = useWindowSize()
-	return <div id="content-berita" className={`p-3 flex flex-col`}>
+	return <div className="content-berita p-3 flex flex-col">
 		<div className={`flex ${isMobile ? 'flex-col-reverse' : ''}`}>
 			<div className={`w-full ${!isMobile && 'pr-3'}`}>
 				<img className="w-full h-auto" alt="" src={FILE_PATH + state.foto} />
