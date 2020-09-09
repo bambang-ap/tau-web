@@ -8,7 +8,6 @@ import useWindowSize from 'src/utils/windowSize';
 
 const S1 = ({ match, data: { id, nama, data = [] } }) => {
 	const [, , isMobile] = useWindowSize()
-	console.log(isMobile)
 	const [state, _] = useState({ tab: 'deskripsi_prodi' })
 	const setState = v => _({ ...state, ...v })
 	const jurusan = data.filter(({ id }) => id === match.params.jurusan)[0]

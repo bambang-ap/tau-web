@@ -32,7 +32,7 @@ const GaleriKegiatan = ({ className, staticContext, ...props }) => {
 	useEffect(effect, [])
 	return <div {...props} id="galeri-kegiatan" className={`pt-3 pb-3 ai-c flex flex-col ${className}`}>
 		<h4>Galeri Kegiatan</h4>
-		<h5 className="mt-3 mb-3 ta-c">{deskripsiGaleri + deskripsiGaleri + deskripsiGaleri}</h5>
+		<h5 className="p3 ta-c">{deskripsiGaleri + deskripsiGaleri + deskripsiGaleri}</h5>
 		{isHome ? <ReactElasticCarousel focusOnSelect={false} showArrows={false} itemsToShow={isMobile ? 1 : 4}>
 			{Items}
 		</ReactElasticCarousel> : Items}

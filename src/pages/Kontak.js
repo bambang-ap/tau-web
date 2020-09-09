@@ -1,16 +1,20 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { Input, Textarea } from 'src/components/Input';
 import { Button } from 'src/components/Button';
 import { sendEmailKontak, getManage } from 'src/utils/api';
 
 const Kontak = ({ className, ...props }) => {
-	const [state, _] = useState({})
+	const [state, stateSet] = useState({})
 	const [manage, setManage] = useState({})
-	const setState = v => _({ ...state, ...v })
+	const setState = v => stateSet({ ...state, ...v })
 	const sendEmail = async () => {
-		const { status, message } = sendEmailKontak(state)
-		if (status) _({})
-		alert(message)
+		try {
+			const _resp = await sendEmailKontak(state)
+			stateSet({})
+		} catch (err) {
+			stateSet({})
+		}
 	}
 	const getData = async () => {
 		const { status, data } = await getManage()
@@ -26,11 +30,10 @@ const Kontak = ({ className, ...props }) => {
 	}
 	useEffect(effect, [state])
 	return <div {...props} id="kontak" className={`pt-3 ai-c c-light flex flex-col bc-blue ${className}`}>
-		<h5>Kontak kami</h5>
-		<div className="flex flex-wrap">
+		<div className="flex flex-wrap w-full">
 			<div className="flex p-5 w-full xl:w-1/2">
 				<iframe
-					style={{ width: '100%', minHeight: 300 }}
+					style={{ width: '100%', minHeight: 250 }}
 					title="map-address"
 					frameBorder="0"
 					scrolling="no"
@@ -40,6 +43,7 @@ const Kontak = ({ className, ...props }) => {
 				/>
 			</div>
 			<div className="p-5 flex flex-col w-full xl:w-1/2">
+				<h5>Kontak kami</h5>
 				<h5>{manage.kontakUnivName}</h5>
 				<div>{manage.kontakAlamat}</div>
 				<div className="flex jc-fs ai-c">

@@ -21,8 +21,8 @@ const ProgramStudi = ({ className, ...props }) => {
 	useEffect(effect, [])
 	return <div {...props} id="program-studi" className={`mt-3 ai-c flex wrap flex-col ${className}`}>
 		<h4>Program Studi</h4>
-		<h5 className="mt-5 mb-5">{substr(state.content, 75)}</h5>
-		<Link to="/akademik/s1" className="b-1 p-2 pl-10 pr-10 brd-3 bc-light">Lihat Semua</Link>
+		<h6 className="p-3">{substr(state.content, 75)}</h6>
+		<Link to={`/akademik/s1/1/2`} className="b-1 p-2 pl-10 pr-10 brd-3 bc-light">Lihat Semua</Link>
 		<ReactElasticCarousel focusOnSelect={false} showArrows={false} className="mt-3 mb-3" itemsToShow={isMobile ? 1 : 4}>
 			{state.data.rMap(jurusan =>
 				<div className="flex flex-col w-full">
