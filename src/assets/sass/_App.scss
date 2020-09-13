@@ -72,6 +72,7 @@ button:focus, input:focus, textarea:focus {
             &:before {
               content: if($var == ol, counter(number)".", "-");
               margin-right: .5rem;
+              overflow-wrap: break-word; 
             }
           }
         }
