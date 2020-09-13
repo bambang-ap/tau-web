@@ -17,10 +17,12 @@ const GaleriKegiatan = ({ className, staticContext, ...props }) => {
 		if (status) setDataGaleri(data)
 		if (statusManage) setDeskripsiGaleri(content)
 	}
-	const Items = dataGaleri.rMap(({ nama, deskripsi, media, is_video }) => <div className="m-3 flex flex-col b-1 w-full content brd-3 o-h">
-		{is_video === '1' ? <video className="w-auto as-c flex h-50" controls>
-			<source src={FILE_PATH + media} />
-		</video> : <img className="w-auto as-c flex h-50" alt="" src={FILE_PATH + media} />}
+	const Items = dataGaleri.rMap(({ is_embed, nama, deskripsi, media, is_video }) => <div className="m-3 flex flex-col b-1 w-full content brd-3 o-h">
+		{is_embed === '1' ?
+			<iframe src={media} title="embed-show" /> : is_video === '1' ?
+				<video className="w-auto as-c flex h-50" controls>
+					<source src={FILE_PATH + media} />
+				</video> : <img className="w-auto as-c flex h-50" alt="" src={FILE_PATH + media} />}
 		<div className="p-3 pr-4 pl-4">
 			<h5>{nama}</h5>
 			<div>{deskripsi}</div>

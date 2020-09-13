@@ -25,6 +25,7 @@ const InformasiBerita = ({ className, ...props }) => {
 					dataArticle = [...dataArticle, ...data]
 				}
 			}
+			total = dataArticle.length
 		}
 		setState({ ...manage, total, data: dataArticle })
 	}
