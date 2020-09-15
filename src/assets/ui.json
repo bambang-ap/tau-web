@@ -6,19 +6,29 @@
     },
     {
       "name": "Akademik",
-      "path": "/akademik",
+      "path": "",
       "subMenu": [
         {
           "name": "Program Sarjana (S1)",
-          "path": "/s1"
+          "path": "/akademik/s1"
         },
         {
           "name": "Program Internasional",
-          "path": "/international"
+          "path": "",
+          "subMenu": [
+            {
+              "name": "Fast Track To Australian University",
+              "path": "/international-australian"
+            },
+            {
+              "name": "International Business Program",
+              "path": "/international-business"
+            }
+          ]
         },
         {
           "name": "Staff Pengajar",
-          "path": "/staff"
+          "path": "/akademik/staff"
         }
       ]
     },

@@ -58,7 +58,7 @@ button:focus, input:focus, textarea:focus {
   @import "Home";
   @import "Tentang";
   @import "Kontak";
-  .content-berita {
+  .content-berita, #tentang #tentang-content {
     $list: ul ol;
     @each $var in $list {
       #{$var} {

@@ -15,9 +15,9 @@ const actionUi = () => {
 			const programS1 = await Promise.all(promises)
 			store.dispatch(actionsWeb({ programS1 }))
 			ui.nav = ui.nav.map(nav => {
-				if (nav.path === '/akademik') {
+				if (nav.name === 'Akademik' && nav.path === "") {
 					nav.subMenu = nav.subMenu.map(sub => {
-						if (sub.path === '/s1') {
+						if (sub.path === '/akademik/s1') {
 							sub.subMenu = programS1.map(s1 => {
 								return {
 									name: s1.nama,

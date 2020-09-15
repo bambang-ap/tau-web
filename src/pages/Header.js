@@ -18,7 +18,8 @@ const Header = ({ className, ...props }) => {
 	const NavBar = (arr, id = "", prevPath = "") => {
 		const Menu = id === ""
 		return arr.map(
-			({ name, path, subMenu }, i) => {
+			({ name = "", path, subMenu }, i) => {
+				name = name.ucwords()
 				const viewId = (id + name + "-").replace(/\s/g, '')
 				const viewPath = prevPath + path
 				return subMenu ?

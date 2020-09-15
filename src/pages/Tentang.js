@@ -30,7 +30,7 @@ const Tentang = ({ match }) => {
 				<Link key={i} to={path} className={`${window.location.href.includes(path) && 'active'} tab p-3 jc-c flex ${isMobile ? 'w-full' : 'w-1/4'}`} >{name}</Link>
 			)}
 		</div>
-		<div className="flex w-full flex-col p-5">{HtmlParser(deskripsi.replacePath())}</div>
+		<div id="tentang-content" className="flex w-full flex-col p-5">{HtmlParser(deskripsi.replacePath(true))}</div>
 	</div>
 }
 
