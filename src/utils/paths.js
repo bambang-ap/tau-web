@@ -9,4 +9,4 @@ String.prototype.replacePath = function (toPath) {
 	return this.replace(regex, '$FILE_PATH')
 }
 
-export const substr = (txt = '', length) => txt.length > length ? `${txt.substr(0, length)}...` : txt
+export const substr = (txt = '', length) => txt ? txt.length > length ? `${txt.substr(0, length)}...` : txt : ''

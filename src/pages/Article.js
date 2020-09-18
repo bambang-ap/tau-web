@@ -20,7 +20,7 @@ const Article = ({ match: { params } }) => {
 		getData()
 		dispatch(actionsWeb({ noBanner: true/* , noFooter: true */ }))
 	}
-	useEffect(effect, [])
+	useEffect(effect, [params.url])
 	const parseHtml = article => {
 		article = article.replace(/\$FILE_PATH/g, FILE_PATH)
 		article = bbobHTML(article, presetHtml())
