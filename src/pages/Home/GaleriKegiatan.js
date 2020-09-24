@@ -49,24 +49,24 @@ const GaleriKegiatan = ({ className, staticContext, ...props }) => {
 	useEffect(effect, [])
 	return <>
 		<Modal className="jc-c ai-c" onClickBlack={() => setVisible(false)} visible={visible}>
-			<div style={{ width: '80%', height: '80%' }} className="flex ai-c brd-3 bc-light p-5">
-				<i style={{ cursor: 'pointer' }} className="p-5 f-10 fa fa-chevron-left" onClick={() => {
+			<div style={isMobile ? { width: '100%' } : { width: '80%', height: '80%' }} className="flex ai-c brd-3 bc-light p-5">
+				{!isMobile && <i style={{ cursor: 'pointer' }} className="p-5 f-10 fa fa-chevron-left" onClick={() => {
 					if (carouselModalRef) {
 						let idx = indexShow !== 0 ? indexShow - 1 : 0
 						carouselModalRef.goTo(indexShow - 1)
 						setIndexShow(idx)
 					}
-				}} />
+				}} />}
 				<ReactElasticCarousel ref={ref => carouselModalRef = ref} initialFirstItem={indexShow} className="p-5" focusOnSelect={false} showArrows={false} itemsToShow={1}>
 					{Items}
 				</ReactElasticCarousel>
-				<i style={{ cursor: 'pointer' }} className="p-5 f-10 fa fa-chevron-right" onClick={() => {
+				{!isMobile && <i style={{ cursor: 'pointer' }} className="p-5 f-10 fa fa-chevron-right" onClick={() => {
 					if (carouselModalRef) {
 						let idx = indexShow !== dataGaleri.length - 1 ? indexShow + 1 : dataGaleri.length - 1
 						carouselModalRef.goTo(indexShow + 1)
 						setIndexShow(idx)
 					}
-				}} />
+				}} />}
 			</div>
 		</Modal>
 		<div {...props} id="galeri-kegiatan" className={`pt-3 pb-3 ai-c flex flex-col ${className}`}>

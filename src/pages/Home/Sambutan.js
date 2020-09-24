@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { FILE_PATH, getManage } from 'src/utils/api';
 import HtmlParser from 'react-html-parser';
 import { useState } from 'react';
-import { imgSize } from 'src/utils/actualImageSize';
+// import { imgSize } from 'src/utils/actualImageSize';
 import useWindowSize from 'src/utils/windowSize';
 
 const Sambutan = ({ className, ...props }) => {
