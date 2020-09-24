@@ -1,7 +1,7 @@
 /* eslint-disable no-redeclare */
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getManage, getArticle, FILE_PATH } from 'src/utils/api';
+import { getArticle, FILE_PATH } from 'src/utils/api';
 import ReactElasticCarousel from 'react-elastic-carousel';
 import useWindowSize from 'src/utils/windowSize';
 import { substr } from 'src/utils/paths';
@@ -57,7 +57,7 @@ const InformasiBerita = ({ className, ...props }) => {
 				{Items}
 			</ReactElasticCarousel> : <div className="flex flex-wrap">{Items}</div>}
 		</div>
-		{isHome && <Link to="/info/berita" className="b-1 p-2 pl-10 pr-10 brd-3 bc-light">Lihat Semua</Link>}
+		{isHome && <Link to="/info/berita" className="b-1 p-2 pl-10 pr-10 brd-1 bc-light">Lihat Semua</Link>}
 	</div>
 }
 

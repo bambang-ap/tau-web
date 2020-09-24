@@ -24,12 +24,12 @@ const App = () => {
   }
   useEffect(effect, [maxWidth])
   return <div className="flex flex-col w-full app">
-    <Header className={`pl-10 pr-10 h-${height} bb-1 pt-5 pb-5`} />
+    <Header className={`pl-10 pr-10 h-${height} bb-1 pt-3 pb-3`} />
     <div className={`bg-white wrapper w-full pt-${height}`}>
       {!Web.noBanner && <Banner />}
       <Routes />
     </div>
-    {!Web.noFooter && <Kontak className="" />}
+    {!Web.noFooter && <Kontak className={isMobile ? 'p-3' : 'p-10 pr-20 pl-20'} />}
   </div>
 }
 

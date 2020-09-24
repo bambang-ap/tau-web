@@ -13,8 +13,8 @@ const StaffPengajar = ({ className, ...props }) => {
 		const { data } = await getStaff()
 		setState({ ...manage, data })
 	}
-	const Items = state.data.rMap(a => <div className={`flex o-h flex-col p-5 ${isHome ? '' : 'w-1/4'}`}>
-		<img className="brd-3 h-50 w-auto as-c" alt="" src={FILE_PATH + a.foto} />
+	const Items = state.data.rMap(a => <div className={`o-h p-5 ${isHome ? '' : 'w-1/4'}`}>
+		<img className="shadow-md brd-3 h-auto w-full as-c" alt="" src={FILE_PATH + a.foto} />
 		<div className="mt-5">{a.nama}</div>
 		<div className="as-fs c-link SemiBoldItalic">{a.jabatan}</div>
 	</div>)
@@ -24,11 +24,6 @@ const StaffPengajar = ({ className, ...props }) => {
 	}
 	useEffect(effect, [])
 	return <div {...props} id="staff-pengajar" className={`flex flex-wrap ${className}`}>
-		{isHome && <div className={`flex ${isMobile ? 'w-full ai-c' : 'xl:w-1/4 ai-fs'} flex-col p-5`}>
-			<h4>Staff & Pengajar</h4>
-			<p className="mt-5 mb-5">{state.content}</p>
-			<Link to="/akademik/staff" className="b-1 p-2 pl-10 pr-10 brd-3 bc-light">Lihat Semua</Link>
-		</div>}
 		{isHome ? <ReactElasticCarousel focusOnSelect={false}
 			showArrows={false}
 			className={`mt-3 mb-3 ${isHome ? isMobile ? 'w-full' : 'w-3/4' : 'w-full'}`}
@@ -36,6 +31,11 @@ const StaffPengajar = ({ className, ...props }) => {
 			{Items}
 		</ReactElasticCarousel>
 			: Items}
+		{isHome && <div className={`flex ${isMobile ? 'w-full ai-c' : 'xl:w-1/4 as-c'} flex-col p-5`}>
+			<h4>Staff & Pengajar</h4>
+			<p className="mt-5 mb-5">{state.content}</p>
+			<Link to="/akademik/staff" className={`${!isMobile && 'as-fs'} b-1 p-2 pl-10 pr-10 brd-3 bc-light`}>Lihat Semua</Link>
+		</div>}
 	</div>
 }
 

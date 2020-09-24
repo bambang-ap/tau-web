@@ -2,13 +2,13 @@
 	z-index: 1;
 	> div {
 		@extend .bt-1;
-		&:nth-child(odd) {
+		&:nth-child(even) {
 			background-color: $greySoft;
 		}
 	}
 	#boa {
 		.name {
-			bottom: 2rem;
+			bottom: 1rem;
 			left: 0;
 			right: 0;
 			text-align: center;

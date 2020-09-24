@@ -25,7 +25,7 @@ const Header = ({ className, ...props }) => {
 				return subMenu ?
 					<div className="menu flex flex-1 relative as-c" key={i}>
 						<Link className={`${Menu && 'jc-c'} relative flex ai-c jc-sb flex flex-1 link ${window.location.href.includes(viewPath) && path !== "" && 'active'}`} onMouseEnter={() => openSubMenu(viewId)} to={viewPath}>
-							<div>{name}</div>
+							<div className={Menu && 'f-5'}>{name}</div>
 							{!Menu && <i className="ml-3 c-grey fa fa-chevron-right" />}
 						</Link>
 						<div className={`sub-menu ${Menu && 'tail'}`} style={{ display: subMenuOpen[viewId] ? 'block' : 'none' }}>
@@ -33,7 +33,7 @@ const Header = ({ className, ...props }) => {
 						</div>
 					</div> :
 					<div className="menu flex flex-1 relative as-c" key={i}>
-						<Link /* onClick={() => setNavOpen(!navOpen)} */ className={`${Menu && 'jc-c'} flex flex-1 link ${window.location.href.includes(viewPath) && 'active'}`} onMouseEnter={() => openSubMenu(viewId)} to={viewPath}>{name}</Link>
+						<Link /* onClick={() => setNavOpen(!navOpen)} */ className={`${Menu && 'jc-c f-5'} flex flex-1 link ${window.location.href.includes(viewPath) && 'active'}`} onMouseEnter={() => openSubMenu(viewId)} to={viewPath}>{name}</Link>
 					</div>
 			}
 		)

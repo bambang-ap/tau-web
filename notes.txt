@@ -24,3 +24,31 @@ CMS
 // - JoditEditor css bold & listing (ul, ol) not working
 // - JoditEditor when typing scrolling toolbox
 // - CMS design copy from (https://mitraandalankarawang.co.id/index.php/login.html : superadmin)
+
+
+home:
+banner?
+sambutan?
+fasilitas button gede?
+
+
+button all shadow
+font bold
+
+prodi foto2
+
+info berita = prodi
+
+galeri kegiatan !=    no detail
+
+
+
+
+tentang:
+banner kegedean
+
+s1:
+banner kegedean
+
+staff pengajar !=
+

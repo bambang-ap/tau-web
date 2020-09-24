@@ -21,11 +21,11 @@ const Fasilitas = ({ className, ...props }) => {
 		<img className="h-50 w-auto as-c brd-3" alt="" src={FILE_PATH + a.foto} />
 		<div className="mt-5">{a.nama}</div>
 	</div>)
-	return <div {...props} id="fasilitas" className={`mb-3 flex flex-wrap jc-c ${className}`}>
+	return <div {...props} id="fasilitas" className={`pb-3 flex flex-wrap jc-c ${className}`}>
 		{isHome && <div className={`flex jc-c ${isMobile ? 'w-full ai-c' : 'w-1/4 ai-fs'} flex-col p-5`}>
 			<h4 onClick={() => console.log(state)}>Fasilitas</h4>
 			<p className={`mt-5 mb-5 ${isMobile ? 'ta-c' : 'ta-l'}`}>{state.content}</p>
-			<Link to={'/fasilitas'} className="b-1 p-2 pl-10 pr-10 brd-3 bc-light">Lihat Semua</Link>
+			<Link to={'/fasilitas'} className="b-1 p-2 pl-10 pr-10 brd-1 bc-light">Lihat Semua</Link>
 		</div>}
 		{isHome ? <ReactElasticCarousel focusOnSelect={false}
 			preventDefaultTouchmoveEvent

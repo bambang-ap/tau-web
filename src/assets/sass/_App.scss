@@ -37,7 +37,7 @@ button:focus, input:focus, textarea:focus {
 
 * {
   &:not(.fa) {
-    font-family: Regular; 
+    font-family: SemiBold; 
   }
   &:not(h1, h2, h3, h4, h5, h6) {
     font-size: #{$fontSize}rem;
@@ -60,6 +60,12 @@ button:focus, input:focus, textarea:focus {
   @import "Kontak";
   .content-berita, #tentang #tentang-content {
     $list: ul ol;
+    b, strong {
+      font-family: Bold !important;
+    }
+    a {
+      color: $link;
+    }
     @each $var in $list {
       #{$var} {
         margin-left: #{$fontSize * 1.5}rem;

@@ -35,10 +35,11 @@ const Banner = ({ className = "", ...props }) => {
 	const effect = () => {
 		getData()
 		if (infoRef) {
-			setHeight(maxHeight - infoRef.current.clientHeight - header.clientHeight)
+			const currentHeight = maxHeight - infoRef.current.clientHeight - header.clientHeight
+			setHeight(isHome ? currentHeight : currentHeight / 1.5)
 		}
 	}
-	useEffect(effect, [header.clientHeight, maxHeight])
+	useEffect(effect, [header.clientHeight, maxHeight, isHome])
 	return <div {...props} id="banner" className={`flex flex-col ${className}`}>
 		<div ref={infoRef} className={`flex flex-wrap p-3 ${!isMobile && 'pl-10 pr-10'} bc-grey-hard c-light f-20`}>
 			<div className={`${isMobile ? 'f-3 w-full jc-c' : 'f-4 w-1/3 jc-fs'} flex`}>{manage.kontakPhone1} atau {manage.kontakPhone2}</div>
@@ -66,10 +67,10 @@ const Banner = ({ className = "", ...props }) => {
 			itemsToShow={1}
 			onNextEnd={({ index }) => index === banner.length - 1 && setTimeout(() => carouselRef.current.goTo(0), autPlaySpeed / 1.5)}>
 			{banner.filter(({ isForBanner }) => isHome ? isForBanner === '0' : isForBanner === '1').rMap(({ image }) =>
-				<div style={{ height }}>
+				<div className="w-full o-h" style={{ height }}>
 					<img
 						alt=""
-						className="h-full w-auto"
+						className="w-full h-full"
 						src={FILE_PATH + image}
 					/>
 				</div>

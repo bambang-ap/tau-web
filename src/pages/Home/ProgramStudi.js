@@ -19,10 +19,10 @@ const ProgramStudi = ({ className, ...props }) => {
 		getData()
 	}
 	useEffect(effect, [])
-	return <div {...props} id="program-studi" className={`mt-3 ai-c flex wrap flex-col ${className}`}>
+	return <div {...props} id="program-studi" className={`${isMobile ? 'pt-3 pb-3' : ''} ai-c flex wrap flex-col ${className}`}>
 		<h4>Program Studi</h4>
 		<h6 className="p-3">{substr(state.content, 75)}</h6>
-		<Link to={`/akademik/s1/1/2`} className="b-1 p-2 pl-10 pr-10 brd-3 bc-light">Lihat Semua</Link>
+		<Link to={`/akademik/s1/1/2`} className="b-1 p-2 pl-10 pr-10 brd-1 bc-light">Lihat Semua</Link>
 		<ReactElasticCarousel focusOnSelect={false} showArrows={false} className="mt-3 mb-3" itemsToShow={isMobile ? 1 : 4}>
 			{state.data.rMap(jurusan =>
 				<div className="flex flex-col w-full">
@@ -30,7 +30,7 @@ const ProgramStudi = ({ className, ...props }) => {
 						<img alt="" className="h-50 w-auto as-c" src={FILE_PATH + jurusan.foto_prodi} />
 						<div className="p-3 pr-4 pl-4">
 							<h5>{jurusan.nama_prodi}</h5>
-							<div>{substr(jurusan.deskripsi_prodi, 150)}</div>
+							<div>{substr(jurusan.deskripsi_prodi, 100)}</div>
 							<Link to={`/akademik/s1/${jurusan.id_program}/${jurusan.id}`} className="as-fs c-link">baca selengkapnya &gt;</Link>
 						</div>
 					</div>
