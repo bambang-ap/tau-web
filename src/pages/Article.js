@@ -7,7 +7,7 @@ import useWindowSize from 'src/utils/windowSize';
 import bbobHTML from '@bbob/html'
 import presetHtml from '@bbob/preset-html5'
 
-const Article = ({ match: { params } }) => {
+const Article = ({ location: { state: locationState }, match: { params } }) => {
 	const [state, setState] = useState({ artikel: '' })
 	const dispatch = useDispatch()
 	const getData = async () => {
@@ -18,9 +18,9 @@ const Article = ({ match: { params } }) => {
 	}
 	const effect = () => {
 		getData()
-		dispatch(actionsWeb({ noBanner: true/* , noFooter: true */ }))
+		dispatch(actionsWeb({ noBanner: true/* , noFooter: true */, ...locationState }))
 	}
-	useEffect(effect, [params.url])
+	useEffect(effect, [params.url, locationState])
 	const parseHtml = article => {
 		article = article.replace(/\$FILE_PATH/g, FILE_PATH)
 		article = bbobHTML(article, presetHtml())
@@ -28,13 +28,13 @@ const Article = ({ match: { params } }) => {
 	}
 	const [, , isMobile] = useWindowSize()
 	return <div className="content-berita p-3 flex flex-col">
-		<div className={`flex ${isMobile ? 'flex-col-reverse' : ''}`}>
-			<div className={`w-full ${!isMobile && 'pr-3'}`}>
+		<div className={`flex flex-col ai-c`}>
+			<div className={`${isMobile ? 'w-full' : 'w-2/5 pr-3'}`}>
 				<img className="w-full h-auto" alt="" src={FILE_PATH + state.foto} />
 			</div>
-			<div className={`${isMobile ? '' : 'as-fe w-2/3'}`}>
-				<h1>{state.judul}</h1>
-				<h5>{state.tgl}</h5>
+			<div className={`${isMobile ? '' : 'w-5/6'}`}>
+				<h1 className="ta-c">{state.judul}</h1>
+				<h5 className="ta-c">{state.tgl}</h5>
 			</div>
 		</div>
 		<div className="pt-5 pb-5">

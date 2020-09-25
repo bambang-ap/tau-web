@@ -11,6 +11,7 @@ import RedirectArticle from 'src/components/RedirectArticle';
 import { Button } from 'src/components/Button';
 import { Input } from 'src/components/Input';
 import Tentang from 'src/pages/Tentang';
+import BoardOfAdvisors from 'src/pages/Home/BoardOfAdvisors';
 // import Article from 'src/pages/Article';
 
 const Routes = ({ className }) => {
@@ -36,6 +37,7 @@ const Routes = ({ className }) => {
 			<Route path="/tentang/:part" component={Tentang} />
 			<Route path="/akademik" component={AkademikRoute} />
 			<Route path="/fasilitas" component={Fasilitas} />
+			<Route path="/board-of-advisors" component={BoardOfAdvisors} />
 			<Route path="/info" render={() => <Redirect to="/info/berita" />} exact />
 			<Route path="/info/berita" exact component={InformasiBerita} />
 			<Route path="/karir" exact component={() => <RedirectArticle part="career" />} />
@@ -59,7 +61,10 @@ const Routes = ({ className }) => {
 					</div>
 				</div>
 			</div>} />
-			<Route path="/404" component={() => <div className="flex flex-1 jc-c p-30 f-30 c-grey-hard">404</div>} />
+			<Route path="/404" component={() => <div className="flex flex-col flex-1 ai-c p-30">
+				<div className="f-30 c-grey-hard">404</div>
+				<div>Halaman yang anda minta tidak ditemukan</div>
+			</div>} />
 			<Route path="/studi-tracer" component={() => <RedirectArticle part="tracer" />} />
 			<Route path="/form-mhs" component={() => <RedirectArticle part="kemahasiswaan" />} />
 			<Route path="/daftar-beasiswa" component={() => <RedirectArticle part="beasiswa" />} />

@@ -16,6 +16,7 @@ const Fasilitas = ({ className, ...props }) => {
 	const effect = () => {
 		getData()
 	}
+	
 	useEffect(effect, [])
 	const Items = state.data.rMap(a => <div className={`flex ${isHome ? '' : isMobile ? 'w-full' : 'w-1/4'} o-h flex-col p-5`}>
 		<img className="h-50 w-auto as-c brd-3" alt="" src={FILE_PATH + a.foto} />

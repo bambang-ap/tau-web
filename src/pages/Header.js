@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import useWindowSize from 'src/utils/windowSize';
 
 const Header = ({ className, ...props }) => {
 	const { data: { nav } } = useSelector(state => state.UI)
 	const [subMenuOpen, setSubMenuOpen] = useState({})
+	const history = useHistory()
 	const openSubMenu = (id) => {
 		let menu = {}
 		let parent = id.split('-').filter(a => a !== "").map(a => a + "-")
@@ -24,16 +25,33 @@ const Header = ({ className, ...props }) => {
 				const viewPath = prevPath + path
 				return subMenu ?
 					<div className="menu flex flex-1 relative as-c" key={i}>
-						<Link className={`${Menu && 'jc-c'} relative flex ai-c jc-sb flex flex-1 link ${window.location.href.includes(viewPath) && path !== "" && 'active'}`} onMouseEnter={() => openSubMenu(viewId)} to={viewPath}>
-							<div className={Menu && 'f-5'}>{name}</div>
+						<a
+							style={{ cursor: 'pointer' }}
+							onClick={() => {
+								let exPath = viewPath
+								const getPaths = (menu = []) => {
+									if (menu.length > 0) {
+										const w = getPaths(menu[0].subMenu)
+										return `${menu[0].path}${w}`
+									} else {
+										return ''
+									}
+								}
+								history.push(exPath + getPaths(subMenu), { noBanner: false })
+							}}
+							className={`${Menu && 'jc-c'} relative flex ai-c jc-sb flex flex-1 link ${window.location.href.includes(viewPath) && path !== "" && 'active'}`}
+							onMouseEnter={() => openSubMenu(viewId)}
+						>
+							<div style={{ cursor: 'pointer' }} className={Menu && 'f-5'}>{name}</div>
 							{!Menu && <i className="ml-3 c-grey fa fa-chevron-right" />}
-						</Link>
+						</a>
 						<div className={`sub-menu ${Menu && 'tail'}`} style={{ display: subMenuOpen[viewId] ? 'block' : 'none' }}>
 							{NavBar(subMenu, viewId, viewPath)}
 						</div>
 					</div> :
 					<div className="menu flex flex-1 relative as-c" key={i}>
-						<Link /* onClick={() => setNavOpen(!navOpen)} */ className={`${Menu && 'jc-c f-5'} flex flex-1 link ${window.location.href.includes(viewPath) && 'active'}`} onMouseEnter={() => openSubMenu(viewId)} to={viewPath}>{name}</Link>
+						<Link /* onClick={() => setNavOpen(!navOpen)} */ className={`${Menu && 'jc-c f-5'} flex flex-1 link ${window.location.href.includes(viewPath) && 'active'}`} onMouseEnter={() => openSubMenu(viewId)}
+							to={{ pathname: viewPath, state: { noBanner: false } }}>{name}</Link>
 					</div>
 			}
 		)

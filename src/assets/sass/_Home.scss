@@ -6,13 +6,13 @@
 			background-color: $greySoft;
 		}
 	}
-	#boa {
-		.name {
-			bottom: 1rem;
-			left: 0;
-			right: 0;
-			text-align: center;
-			// -webkit-text-stroke: 1px $grey;
-		}
+}
+#boa {
+	.name {
+		bottom: 1rem;
+		left: 0;
+		right: 0;
+		text-align: center;
+		// -webkit-text-stroke: 1px $grey;
 	}
 }
