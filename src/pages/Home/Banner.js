@@ -2,14 +2,12 @@
 import React, { useRef, useState, useEffect } from 'react';
 import useWindowSize from 'src/utils/windowSize';
 import { getBanner, FILE_PATH, getManage } from 'src/utils/api';
-import ReactElasticCarousel from 'react-elastic-carousel';
+import ReactElasticCarousel from 'src/components/ReactElasticCarousel';
 
 const Banner = ({ className = "", ...props }) => {
-	const autPlaySpeed = 5000
 	const isHome = window.location.pathname.includes('/home')
 	const header = document.querySelector('#header') || {}
 	const infoRef = useRef()
-	const carouselRef = useRef()
 	const [, maxHeight, isMobile = false] = useWindowSize()
 	const [height, setHeight] = useState(0)
 	const [manage, setManage] = useState({})
@@ -41,7 +39,7 @@ const Banner = ({ className = "", ...props }) => {
 	}
 	useEffect(effect, [header.clientHeight, maxHeight, isHome])
 	return <div {...props} id="banner" className={`flex flex-col ${className}`}>
-		<div ref={infoRef} className={`flex flex-wrap p-3 ${!isMobile && 'pl-10 pr-10'} bc-grey-hard c-light f-20`}>
+		<div ref={infoRef} className={`flex flex-wrap p-3 ${!isMobile && 'pl-10 pr-10'} bc-link c-light f-20`}>
 			<div className={`${isMobile ? 'f-3 w-full jc-c' : 'f-4 w-1/3 jc-fs'} flex`}>{manage.kontakPhone1} atau {manage.kontakPhone2}</div>
 			<a className={`${isMobile ? 'f-3 w-full jc-c' : 'f-4 w-1/3 jc-c'} mt-1 mb-1 flex`} target="_blank" href={manage.kontakSistemInformasiAkademik}>Sistem Informasi Akademik</a>
 			<div className={`${isMobile ? 'f-3 w-full jc-c' : 'f-4 w-1/3 jc-fe'} flex ai-c`}>
@@ -57,15 +55,10 @@ const Banner = ({ className = "", ...props }) => {
 			</div>
 		</div>
 		<ReactElasticCarousel
-			enableAutoPlay
 			pagination={isHome}
-			ref={carouselRef}
-			autoPlaySpeed={autPlaySpeed}
-			focusOnSelect={false}
-			showArrows={false}
 			className="m-0 pagination-inside"
-			itemsToShow={1}
-			onNextEnd={({ index }) => index === banner.length - 1 && setTimeout(() => carouselRef.current.goTo(0), autPlaySpeed / 1.5)}>
+			length={banner.length}
+			itemsToShow={1}>
 			{banner.filter(({ isForBanner }) => isHome ? isForBanner === '0' : isForBanner === '1').rMap(({ image }) =>
 				<div className="w-full o-h" style={{ height }}>
 					<img

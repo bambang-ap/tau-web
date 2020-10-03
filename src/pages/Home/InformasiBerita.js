@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getArticle, FILE_PATH } from 'src/utils/api';
-import ReactElasticCarousel from 'react-elastic-carousel';
+import ReactElasticCarousel from 'src/components/ReactElasticCarousel';
 import useWindowSize from 'src/utils/windowSize';
-import { substr } from 'src/utils/paths';
+import { btnClass, substr } from 'src/utils/paths';
 
 const InformasiBerita = ({ className, ...props }) => {
 	const isHome = window.location.pathname.includes('/home')
@@ -35,10 +35,10 @@ const InformasiBerita = ({ className, ...props }) => {
 		setState({ total, data: dataArticle })
 	}
 	const Items = (isHome ? state.data.filter((a, i) => i < 8) : state.data).rMap(a => <div className={`flex p-3 ${isHome ? 'w-full' : isMobile ? 'w-full' : 'w-1/4'} flex-col`}>
-		<div className="b-1 brd-1 flex flex-col">
-			<div className="flex jc-c">
-				<img alt="" className="brd-1 mt-1 h-50 w-auto" src={FILE_PATH + a.foto} />
-			</div>
+	<div className="b-1 brd-1 flex flex-col">
+			<Link to={'/' + a.url} className="o-h brd-1 mt-1 h-50 w-auto">
+				<img alt="" className="zoom" src={FILE_PATH + a.foto} />
+			</Link>
 			<div className="p-3 pr-4 pl-4">
 				<h5>{a.judul}</h5>
 				<div>{substr(a.deskripsi, 150)}</div>
@@ -53,11 +53,11 @@ const InformasiBerita = ({ className, ...props }) => {
 	return <div {...props} id="boa" className={`ai-c pt-3 pb-3 flex flex-col ${className}`}>
 		<h5>Informasi & Berita</h5>
 		<div className="mt-3 mb-3 flex w-full flex-wrap">
-			{isHome ? <ReactElasticCarousel focusOnSelect={false} showArrows={false} className={``} itemsToShow={isMobile ? 1 : 4}>
+			{isHome ? <ReactElasticCarousel length={Items.length} focusOnSelect={false} showArrows={true} className={``} itemsToShow={isMobile ? 1 : 4}>
 				{Items}
 			</ReactElasticCarousel> : <div className="flex flex-wrap">{Items}</div>}
 		</div>
-		{isHome && <Link to="/info/berita" className="b-1 p-2 pl-10 pr-10 brd-1 bc-light">Lihat Semua</Link>}
+		{isHome && <Link to="/info/berita" className={`bc-light ${btnClass}`}>Lihat Semua</Link>}
 	</div>
 }
 

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { getProgramStudi, getManage, getS1, FILE_PATH } from 'src/utils/api';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import ReactElasticCarousel from 'react-elastic-carousel';
+import ReactElasticCarousel from 'src/components/ReactElasticCarousel';
 import useWindowSize from 'src/utils/windowSize';
-import { substr } from 'src/utils/paths';
+import { btnClass, substr } from 'src/utils/paths';
 
 const ProgramStudi = ({ className, ...props }) => {
 	const [state, setState] = useState({ data: [], content: '' })
@@ -22,12 +22,14 @@ const ProgramStudi = ({ className, ...props }) => {
 	return <div {...props} id="program-studi" className={`${isMobile ? 'pt-3 pb-3' : ''} ai-c flex wrap flex-col ${className}`}>
 		<h4>Program Studi</h4>
 		<h6 className="p-3">{substr(state.content, 75)}</h6>
-		<Link to={`/akademik/s1/1/2`} className="b-1 p-2 pl-10 pr-10 brd-1 bc-light">Lihat Semua</Link>
-		<ReactElasticCarousel focusOnSelect={false} showArrows={false} className="mt-3 mb-3" itemsToShow={isMobile ? 1 : 4}>
+		<Link to={`/akademik/s1/1/2`} className={`bc-light ${btnClass}`}>Lihat Semua</Link>
+		<ReactElasticCarousel length={state.data.length} focusOnSelect={false} showArrows={true} className="mt-3 mb-3" itemsToShow={isMobile ? 1 : 4}>
 			{state.data.rMap(jurusan =>
 				<div className="flex flex-col w-full">
 					<div className="m-3 o-h brd-3 flex flex-col">
-						<img alt="" className="h-50 w-auto as-c" src={FILE_PATH + jurusan.foto_prodi} />
+						<Link className="h-50 w-auto as-c o-h" to={`/akademik/s1/${jurusan.id_program}/${jurusan.id}`}>
+							<img alt="" className="zoom" src={FILE_PATH + jurusan.foto_prodi} />
+						</Link>
 						<div className="p-3 pr-4 pl-4">
 							<h5>{jurusan.nama_prodi}</h5>
 							<div>{substr(jurusan.deskripsi_prodi, 100)}</div>

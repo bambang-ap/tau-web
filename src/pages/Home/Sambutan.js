@@ -18,11 +18,11 @@ const Sambutan = ({ className, ...props }) => {
 		getData()
 	}
 	useEffect(effect, [])
-	return <div {...props} id="sambutan" className={`pt-3 ai-c flex flex-col ${className}`}>
+	return <div {...props} id="sambutan" className={`pt-5 ai-c flex flex-col ${className}`}>
 		<h4>Sambutan Rektor TAU</h4>
 		<div className="flex flex-wrap ai-c mt-5 p-5 xl:pl-15 xl:pr-15">
 			<div className={`shadow-md brd-3 o-h jc-c ${isMobile ? 'mb-5 w-full h-auto' : 'w-55 h-55'}`}>
-				<img className="h-auto w-full" alt="" src={state.image} />
+				<img className="zoom h-auto w-full" alt="" src={state.image} />
 			</div>
 			<div className="flex flex-col w-full xl:w-4/5 xl:pl-5">
 				{HtmlParser(state.content)}

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -24,7 +25,7 @@ const Header = ({ className, ...props }) => {
 				const viewId = (id + name + "-").replace(/\s/g, '')
 				const viewPath = prevPath + path
 				return subMenu ?
-					<div className="menu flex flex-1 relative as-c" key={i}>
+					<div className="menu flex relative as-c" key={i}>
 						<a
 							style={{ cursor: 'pointer' }}
 							onClick={() => {
@@ -39,18 +40,18 @@ const Header = ({ className, ...props }) => {
 								}
 								history.push(exPath + getPaths(subMenu), { noBanner: false })
 							}}
-							className={`${Menu && 'jc-c'} relative flex ai-c jc-sb flex flex-1 link ${window.location.href.includes(viewPath) && path !== "" && 'active'}`}
+							className={`${Menu ? 'jc-c' : ''} relative flex ai-c jc-sb flex link ${window.location.href.includes(viewPath) && path !== "" ? 'active' : ''}`}
 							onMouseEnter={() => openSubMenu(viewId)}
 						>
-							<div style={{ cursor: 'pointer' }} className={Menu && 'f-5'}>{name}</div>
+							<div style={{ cursor: 'pointer' }} className={Menu ? 'f-5' : ''}>{name}</div>
 							{!Menu && <i className="ml-3 c-grey fa fa-chevron-right" />}
 						</a>
-						<div className={`sub-menu ${Menu && 'tail'}`} style={{ display: subMenuOpen[viewId] ? 'block' : 'none' }}>
+						<div className={`sub-menu ${Menu ? 'tail' : ''}`} style={{ display: subMenuOpen[viewId] ? 'block' : 'none' }}>
 							{NavBar(subMenu, viewId, viewPath)}
 						</div>
 					</div> :
-					<div className="menu flex flex-1 relative as-c" key={i}>
-						<Link /* onClick={() => setNavOpen(!navOpen)} */ className={`${Menu && 'jc-c f-5'} flex flex-1 link ${window.location.href.includes(viewPath) && 'active'}`} onMouseEnter={() => openSubMenu(viewId)}
+					<div className="menu flex relative as-c" key={i}>
+						<Link /* onClick={() => setNavOpen(!navOpen)} */ className={`${Menu ? 'jc-c f-5' : ''} flex link ${window.location.href.includes(viewPath) ? 'active' : ''}`} onMouseEnter={() => openSubMenu(viewId)}
 							to={{ pathname: viewPath, state: { noBanner: false } }}>{name}</Link>
 					</div>
 			}
@@ -74,7 +75,7 @@ const Header = ({ className, ...props }) => {
 			</Link>
 			{isMobile && <i style={{ cursor: 'pointer' }} onClick={() => setNavOpen(!navOpen)} className="p-2 bc-light brd-2 ion-navicon-round f-7" />}
 		</div>
-		{navOpen && <div className={`flex flex-1 menu-wrapper ${isMobile ? 'p-5' : ''}`}>
+		{navOpen && <div className={`flex flex-1 menu-wrapper jc-fe ${isMobile ? 'p-5' : ''}`}>
 			{nav && NavBar(nav)}
 		</div>}
 	</div>

@@ -10,3 +10,5 @@ String.prototype.replacePath = function (toPath) {
 }
 
 export const substr = (txt = '', length) => txt ? txt.length > length ? `${txt.substr(0, length)}...` : txt : ''
+
+export const btnClass = "b-1 shadow-md p-2 pl-10 pr-10 brd-1"

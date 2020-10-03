@@ -20,6 +20,13 @@ img {
   -moz-user-drag: none;
   -o-user-drag: none;
   user-drag: none;
+  transition: 1s;
+  &.zoom {
+    transform-origin: center top;
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
 }
 
 a {

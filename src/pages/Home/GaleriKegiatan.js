@@ -3,12 +3,10 @@ import { useState } from 'react';
 import { getGaleri, getManage } from 'src/utils/api';
 import { useEffect } from 'react';
 import { FILE_PATH } from '../../utils/api';
-import ReactElasticCarousel from 'react-elastic-carousel';
+import ReactElasticCarousel from 'src/components/ReactElasticCarousel';
 import useWindowSize from 'src/utils/windowSize';
 import Modal from 'src/components/Modal';
 
-
-let carouselModalRef
 const GaleriKegiatan = ({ className, staticContext, ...props }) => {
 	const isHome = window.location.pathname.includes('/home')
 	const [dataGaleri, setDataGaleri] = useState([])
@@ -31,12 +29,18 @@ const GaleriKegiatan = ({ className, staticContext, ...props }) => {
 					setIndexShow(index)
 				}
 			}}
-			className={`${visible ? 'flex jc-c' : 'h-65'} m-3 b-1 w-full content brd-3 o-h`}>
+			className={`${visible ? 'flex jc-c' : 'h-50'} m-3 w-full content o-h`}>
 			{is_embed === '1' ?
-				<iframe className="w-full h-full" src={media} title="embed-show" /> : is_video === '1' ?
-					<video className={`as-c flex ${visible ? 'w-auto h-full' : 'h-auto w-full'}`} {...visible && { controls: true }}>
+				<iframe className="b-1 brd-3 w-full h-full" src={media} title="embed-show" /> : is_video === '1' ?
+					<video className={`b-1 brd-3 as-c flex ${visible ? 'w-auto h-full' : 'h-auto w-full'}`} {...visible && { controls: true }}>
 						<source src={FILE_PATH + media} />
-					</video> : <img className={`as-c flex ${visible ? 'w-auto h-full' : 'h-auto w-full'}`} alt="" src={FILE_PATH + media} />}
+					</video> :
+					<div className={`b-1 brd-3 o-h ${visible ? 'w-auto h-full' : 'h-auto w-full'}`}>
+						<img
+							className={`as-c flex ${visible ? '' : 'zoom'}`}
+							alt="" src={FILE_PATH + media}
+						/>
+					</div>}
 			{/* <div className="p-3 pr-4 pl-4">
 			<h5>{nama}</h5>
 			<div>{deskripsi}</div>
@@ -50,29 +54,15 @@ const GaleriKegiatan = ({ className, staticContext, ...props }) => {
 	return <>
 		<Modal className="jc-c ai-c" onClickBlack={() => setVisible(false)} visible={visible}>
 			<div style={isMobile ? { width: '100%' } : { width: '80%', height: '80%' }} className="flex ai-c brd-3 bc-light p-5">
-				{!isMobile && <i style={{ cursor: 'pointer' }} className="p-5 f-10 fa fa-chevron-left" onClick={() => {
-					if (carouselModalRef) {
-						let idx = indexShow !== 0 ? indexShow - 1 : 0
-						carouselModalRef.goTo(indexShow - 1)
-						setIndexShow(idx)
-					}
-				}} />}
-				<ReactElasticCarousel ref={ref => carouselModalRef = ref} initialFirstItem={indexShow} className="p-5" focusOnSelect={false} showArrows={false} itemsToShow={1}>
+				<ReactElasticCarousel length={Items.length} initialFirstItem={indexShow} className="p-5" focusOnSelect={false} showArrows={true} itemsToShow={1}>
 					{Items}
 				</ReactElasticCarousel>
-				{!isMobile && <i style={{ cursor: 'pointer' }} className="p-5 f-10 fa fa-chevron-right" onClick={() => {
-					if (carouselModalRef) {
-						let idx = indexShow !== dataGaleri.length - 1 ? indexShow + 1 : dataGaleri.length - 1
-						carouselModalRef.goTo(indexShow + 1)
-						setIndexShow(idx)
-					}
-				}} />}
 			</div>
 		</Modal>
 		<div {...props} id="galeri-kegiatan" className={`pt-3 pb-3 ai-c flex flex-col ${className}`}>
 			<h4>Galeri Kegiatan</h4>
 			<h5 className="p3 ta-c">{deskripsiGaleri + deskripsiGaleri + deskripsiGaleri}</h5>
-			{isHome ? <ReactElasticCarousel focusOnSelect={false} showArrows={false} itemsToShow={isMobile ? 1 : 4}>
+			{isHome ? <ReactElasticCarousel length={Items.length} focusOnSelect={false} showArrows={true} itemsToShow={isMobile ? 1 : 4}>
 				{Items}
 			</ReactElasticCarousel> : Items}
 		</div>

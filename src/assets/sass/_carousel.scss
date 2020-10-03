@@ -1,4 +1,37 @@
 .rec-carousel-wrapper {
+	&.arrow-dark {
+		.rec-carousel {
+			.rec-arrow {
+				background-color: transparentize($blue, .8);
+				box-shadow: 0 0 2px 0px $blue;
+				&:hover, &:focus {
+					background-color: transparentize($blue, .5);
+					color: $light;
+				}
+			}
+		}
+	}
+	.rec-carousel {
+		position: relative;
+		.rec-arrow {
+			color: $light;
+			background-color: transparentize($greySoft, .8);
+			box-shadow: 0 0 2px 0px $light;
+			position: absolute;
+			z-index: 9;
+			font-size: #{$fontSize * 2}rem;
+			&-left {
+				left: 10px;
+			}
+			&-right {
+				right: 10px;
+			}
+			&:hover, &:focus {
+				background-color: transparentize($greySoft, .5);
+				color: $link;
+			}
+		}
+	}
 	.rec-slider-container {
 		margin: 0 !important;
 	}
