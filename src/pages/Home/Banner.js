@@ -1,8 +1,9 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React, { useRef, useState, useEffect } from 'react';
 import useWindowSize from 'src/utils/windowSize';
-import { getBanner, FILE_PATH, getManage } from 'src/utils/api';
 import ReactElasticCarousel from 'src/components/ReactElasticCarousel';
+import { getBanner, FILE_PATH, getManage } from 'src/utils/api';
+import { Link } from 'react-router-dom';
 
 const Banner = ({ className = "", ...props }) => {
 	const isHome = window.location.pathname.includes('/home')
@@ -59,14 +60,21 @@ const Banner = ({ className = "", ...props }) => {
 			className="m-0 pagination-inside"
 			length={banner.length}
 			itemsToShow={1}>
-			{banner.filter(({ isForBanner }) => isHome ? isForBanner === '0' : isForBanner === '1').rMap(({ image }) =>
-				<div className="w-full o-h" style={{ height }}>
-					<img
-						alt=""
-						className="w-full h-full"
-						src={FILE_PATH + image}
-					/>
-				</div>
+			{banner.filter(({ isForBanner }) => isHome ? isForBanner === '0' : isForBanner === '1').rMap(
+				({ image, link }) => {
+					const haveLink = link !== ''
+					const banner = <div className={`w-full o-h`} style={{ height }}>
+						<img
+							alt=""
+							className="w-full h-full"
+							src={FILE_PATH + image}
+						/>
+					</div>
+					return haveLink ? link.validURL() ?
+						<a target="_blank" href={link}>{banner}</a> :
+						<Link to={link}>{banner}</Link>
+						: banner
+				}
 			)}
 		</ReactElasticCarousel>
 	</div>
