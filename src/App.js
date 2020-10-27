@@ -29,6 +29,16 @@ const App = () => {
       {!Web.noBanner && <Banner />}
       <Routes />
     </div>
+    <div className="absolute" style={{ bottom: 0, left: 0 }}>
+
+    </div>
+    <div className="absolute" style={{ background: 'blue', bottom: 0, right: 0 }}>
+      <div className="flex flex-col">
+        <i className="f-6 ml-5 fa fa-facebook-official" />
+        <i className="fa fa-whatsapp" aria-hidden="true" />
+        <i className="f-6 ml-5 fa fa-comments" />
+      </div>
+    </div>
     {!Web.noFooter && <Kontak className={isMobile ? 'p-3' : 'p-10 pr-20 pl-20'} />}
   </div>
 }

@@ -62,6 +62,7 @@ button:focus, input:focus, textarea:focus {
 
 .app {
   @import "Header";
+  @import "Jurusan";
   @import "Home";
   @import "Tentang";
   @import "Kontak";

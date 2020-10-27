@@ -14,7 +14,7 @@ const Jurusan = ({ match, ...p }) => {
 	return <div className="flex p-10">
 		<div className="flex flex-1 flex-col">
 			<div className="flex as-fe w-5/6 pb-5">
-				{Tabs.rMap((t, i) => <Button onClick={() => setTabIndex(i)} className={`${tabIndex === i && 'bb-3-link c-link'}`}>{t}</Button>)}
+				{Tabs.rMap((t, i) => <Button onClick={() => setTabIndex(i)} className={`${tabIndex === i && 'bb-3-link c-link'}`}>{t}hdghfgdf</Button>)}
 			</div>
 			<div className="flex flex-1">
 				<div className="flex pr-10 br-2 flex-col">

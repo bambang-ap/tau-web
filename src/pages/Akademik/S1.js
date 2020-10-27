@@ -12,7 +12,7 @@ const S1 = ({ match, data: { id, nama, data = [] } }) => {
 	const setState = v => _({ ...state, ...v })
 	const jurusan = data.filter(({ id }) => id === match.params.jurusan)[0]
 	const tabs = ['deskripsi_prodi', 'visi_prodi', 'misi_prodi', 'kompetensi_prodi', 'kurikulum_prodi', 'dosen_prodi']
-	return <div className="p-3">
+	return <div id="jurusan" className="p-3">
 		<h5 className="ta-c mb-3">{nama}</h5>
 		{jurusan && <div className="flex flex-wrap flex-col xl:flex-row">
 			<div className="xl:w-1/4 xl:br-2 xl:pr-5 flex flex-col">
@@ -22,7 +22,7 @@ const S1 = ({ match, data: { id, nama, data = [] } }) => {
 					wrapperClass={"br-2"}
 					renderSelect={isMobile}
 					render={({ item: program }) => <Link
-						className={`${program.id === match.params.jurusan ? 'c-link' : 'c-text'} flex ${!isMobile}`}
+						className={`hoverable ${program.id === match.params.jurusan ? 'c-link' : 'c-text'} flex ${!isMobile}`}
 						to={`/akademik/${match.params.akademik}/${id}/${program.id}`}>{program.nama_prodi.ucwords()}
 					</Link>}
 					data={data}
@@ -39,7 +39,7 @@ const S1 = ({ match, data: { id, nama, data = [] } }) => {
 						onClick={() => setState({ tab: tab })}>{tab.replace(/_\w+/g, '').ucwords()}</div>}
 				/> : <div className="flex flex-col xl:flex-row flex-1 flex-wrap">
 						{tabs.rMap(tab => <div
-							className={`${state.tab === tab ? 'bb-2-link c-link' : 'bb-2'} flex jc-c flex-1 p-3`}
+							className={`${state.tab === tab ? 'bb-2-link c-link' : 'bb-2'} hoverable with-border pointer flex jc-c flex-1 p-3`}
 							onClick={() => setState({ tab: tab })}>{tab.replace(/_\w+/g, '').ucwords()}</div>)}
 					</div>}
 				<div style={{ overflowWrap: 'anywhere', textAlign: 'justify' }} className="flex flex-wrap p-3 xl:p-5">

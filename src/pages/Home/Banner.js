@@ -41,7 +41,7 @@ const Banner = ({ className = "", ...props }) => {
 	useEffect(effect, [header.clientHeight, maxHeight, isHome])
 	return <div {...props} id="banner" className={`flex flex-col ${className}`}>
 		<div ref={infoRef} className={`flex flex-wrap p-3 ${!isMobile && 'pl-10 pr-10'} bc-link c-light f-20`}>
-			<div className={`${isMobile ? 'f-3 w-full jc-c' : 'f-4 w-1/3 jc-fs'} flex`}>{manage.kontakPhone1} atau {manage.kontakPhone2}</div>
+			<div className={`${isMobile ? 'f-3 w-full jc-c' : 'f-4 w-1/3 jc-fs'} flex`}>{manage.kontakPhone1} | {manage.kontakPhone2}</div>
 			<a className={`${isMobile ? 'f-3 w-full jc-c' : 'f-4 w-1/3 jc-c'} mt-1 mb-1 flex`} target="_blank" href={manage.kontakSistemInformasiAkademik}>Sistem Informasi Akademik</a>
 			<div className={`${isMobile ? 'f-3 w-full jc-c' : 'f-4 w-1/3 jc-fe'} flex ai-c`}>
 				<a target="_blank" href={manage.kontakTwitter}>

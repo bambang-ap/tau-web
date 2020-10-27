@@ -11,12 +11,6 @@
 	.menu {
 		position: relative;
 		white-space: nowrap;
-		&:nth-last-child(1) a {
-			padding: 1rem 0 1rem 1rem;
-		}
-		&:nth-child(1) a {
-			padding: 1rem 1rem 1rem 0;
-		}
 		a {
 			padding: 1rem;
 			&:hover {

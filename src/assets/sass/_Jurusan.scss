@@ -1,0 +1,10 @@
+#jurusan {
+	.hoverable {
+		&:hover {
+			@extend .c-link;
+		}
+		&.with-border:hover {
+			@extend .bb-2-link;
+		}
+	}
+}
