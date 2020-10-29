@@ -13,4 +13,9 @@ function useWindowSize() {
 	return size;
 }
 
+export const useToggle = (init) => {
+	const [value, setToggle] = useState(init !== undefined ? init : false)
+	return [value, () => setToggle(!value)]
+}
+
 export default useWindowSize

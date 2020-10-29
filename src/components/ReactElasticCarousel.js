@@ -15,7 +15,7 @@ const ReactElasticCarousel = ({ className = "", itemsToShow, length, children, .
 		onNextEnd={({ index }) => {
 			// console.log(index, itemsToShow, length, carouselRef)
 			index === length - itemsToShow && setTimeout(() => {
-				carouselRef.current.goTo(0)
+				if (carouselRef && carouselRef.current) carouselRef.current.goTo(0)
 			}, autoPlaySpeed / 1.5)
 		}}
 		{...rest}>
