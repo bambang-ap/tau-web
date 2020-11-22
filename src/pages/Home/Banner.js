@@ -4,6 +4,7 @@ import useWindowSize from 'src/utils/windowSize';
 import ReactElasticCarousel from 'src/components/ReactElasticCarousel';
 import { getBanner, FILE_PATH, getManage } from 'src/utils/api';
 import { Link } from 'react-router-dom';
+import Image from 'src/components/Image';
 
 const Banner = ({ className = "", ...props }) => {
 	const isHome = window.location.pathname.includes('/home')
@@ -45,13 +46,13 @@ const Banner = ({ className = "", ...props }) => {
 			<a className={`${isMobile ? 'f-3 w-full jc-c' : 'f-4 w-1/3 jc-c'} mt-1 mb-1 flex`} target="_blank" href={manage.kontakSistemInformasiAkademik}>Sistem Informasi Akademik</a>
 			<div className={`${isMobile ? 'f-3 w-full jc-c' : 'f-4 w-1/3 jc-fe'} flex ai-c`}>
 				<a target="_blank" href={manage.kontakTwitter}>
-					<i className={`${isMobile ? 'f-4' : 'f-6'} ml-5 fa fa-instagram`} />
+					<i className={`${isMobile ? 'f-4' : 'f-6'} ml-5 c-light fa fa-instagram`} />
 				</a>
 				<a target="_blank" href={manage.kontakFacebook}>
-					<i className={`${isMobile ? 'f-4' : 'f-6'} ml-5 fa fa-facebook-square`} />
+					<i className={`${isMobile ? 'f-4' : 'f-6'} ml-5 c-light fa fa-facebook-square`} />
 				</a>
 				<a target="_blank" href={manage.kontakInstagram}>
-					<i className={`${isMobile ? 'f-4' : 'f-6'} ml-5 fa fa-twitter-square`} />
+					<i className={`${isMobile ? 'f-4' : 'f-6'} ml-5 c-light fa fa-twitter-square`} />
 				</a>
 			</div>
 		</div>
@@ -64,7 +65,7 @@ const Banner = ({ className = "", ...props }) => {
 				({ image, link }) => {
 					const haveLink = link !== ''
 					const banner = <div className={`w-full o-h`} style={{ height }}>
-						<img
+						<Image
 							alt=""
 							className="w-full h-full"
 							src={FILE_PATH + image}

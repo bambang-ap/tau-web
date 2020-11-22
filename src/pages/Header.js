@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import useWindowSize from 'src/utils/windowSize';
+import Image from 'src/components/Image';
 
 const Header = ({ className, ...props }) => {
 	const { data: { nav } } = useSelector(state => state.UI)
@@ -71,7 +72,7 @@ const Header = ({ className, ...props }) => {
 		{Object.keys(subMenuOpen).length > 0 && <div className="black" onMouseEnter={() => setSubMenuOpen({})} />}
 		<div className="xl:w-1/3 flex jc-sb ai-c pr-3">
 			<Link to="/home">
-				<img style={{ transform: 'scale(.8)', transformOrigin: 'center left' }} className="w-auto h-full" alt="" src={require('src/assets/images/logo-tau.png')} />
+				<Image style={{ transform: 'scale(.8)', transformOrigin: 'center left' }} className="w-auto h-full" alt="" src={require('src/assets/images/logo-tau.png')} />
 			</Link>
 			{isMobile && <i style={{ cursor: 'pointer' }} onClick={() => setNavOpen(!navOpen)} className="p-2 bc-light brd-2 ion-navicon-round f-7" />}
 		</div>

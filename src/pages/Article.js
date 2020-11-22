@@ -6,6 +6,7 @@ import HtmlParser from 'react-html-parser';
 import useWindowSize from 'src/utils/windowSize';
 import bbobHTML from '@bbob/html'
 import presetHtml from '@bbob/preset-html5'
+import Image from 'src/components/Image';
 
 const Article = ({ location: { state: locationState }, match: { params } }) => {
 	const [state, setState] = useState({ artikel: '' })
@@ -29,8 +30,8 @@ const Article = ({ location: { state: locationState }, match: { params } }) => {
 	const [, , isMobile] = useWindowSize()
 	return <div className="content-berita p-3 flex flex-col">
 		<div className={`flex flex-col ai-c`}>
-			<div className={`${isMobile ? 'w-full' : 'w-2/5 pr-3'}`}>
-				<img className="w-full h-auto" alt="" src={FILE_PATH + state.foto} />
+			<div className={`${isMobile ? 'w-full' : 'w-1/5'}`}>
+				<Image className="w-full h-auto" alt="" src={FILE_PATH + state.foto} />
 			</div>
 			<div className={`${isMobile ? '' : 'w-5/6'}`}>
 				<h1 className="ta-c">{state.judul}</h1>

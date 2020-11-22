@@ -4,6 +4,7 @@ import ReactElasticCarousel from 'src/components/ReactElasticCarousel';
 import { Link, useHistory } from 'react-router-dom';
 import useWindowSize from 'src/utils/windowSize';
 import { btnClass } from 'src/utils/paths';
+import Image from 'src/components/Image';
 
 const BoardOfAdvisors = ({ className, staticContext, ...props }) => {
 	const isHome = window.location.pathname.includes('/home')
@@ -30,7 +31,7 @@ const BoardOfAdvisors = ({ className, staticContext, ...props }) => {
 				{dataAdv.rMap(({ nama_advisors, foto_advisors }) => <div className="flex w-full p-3 relative flex-col">
 					<div className="shadow-md w-full h-55 relative content brd-3 o-h">
 						<div className="w-full h-auto brd-1 as-c o-h">
-							<img alt="" className="zoom" src={FILE_PATH + foto_advisors} />
+							<Image alt="" className="zoom" src={FILE_PATH + foto_advisors} />
 						</div>
 						<h6 className="text-shadow-md mr-3 ml-3 absolute c-light name">{nama_advisors}</h6>
 					</div>

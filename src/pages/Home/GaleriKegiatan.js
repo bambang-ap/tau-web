@@ -6,6 +6,7 @@ import { FILE_PATH } from '../../utils/api';
 import ReactElasticCarousel from 'src/components/ReactElasticCarousel';
 import useWindowSize from 'src/utils/windowSize';
 import Modal from 'src/components/Modal';
+import Image from 'src/components/Image';
 
 const GaleriKegiatan = ({ className, staticContext, ...props }) => {
 	const isHome = window.location.pathname.includes('/home')
@@ -36,15 +37,11 @@ const GaleriKegiatan = ({ className, staticContext, ...props }) => {
 						<source src={FILE_PATH + media} />
 					</video> :
 					<div className={`b-1 brd-3 o-h ${visible ? 'w-auto h-full' : 'h-auto w-full'}`}>
-						<img
+						<Image
 							className={`as-c flex ${visible ? '' : 'zoom'}`}
 							alt="" src={FILE_PATH + media}
 						/>
 					</div>}
-			{/* <div className="p-3 pr-4 pl-4">
-			<h5>{nama}</h5>
-			<div>{deskripsi}</div>
-		</div> */}
 		</div>
 	})
 	const effect = () => {
@@ -61,7 +58,7 @@ const GaleriKegiatan = ({ className, staticContext, ...props }) => {
 		</Modal>
 		<div {...props} id="galeri-kegiatan" className={`pt-3 pb-3 ai-c flex flex-col ${className}`}>
 			<h4>Galeri Kegiatan</h4>
-			<h5 className="p3 ta-c">{deskripsiGaleri + deskripsiGaleri + deskripsiGaleri}</h5>
+			<h5 className="p3 ta-c">{deskripsiGaleri}</h5>
 			{isHome ? <ReactElasticCarousel length={Items.length} focusOnSelect={false} showArrows={true} itemsToShow={isMobile ? 1 : 4}>
 				{Items}
 			</ReactElasticCarousel> : Items}

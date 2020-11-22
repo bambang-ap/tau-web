@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import ReactElasticCarousel from 'src/components/ReactElasticCarousel';
 import useWindowSize from 'src/utils/windowSize';
 import { btnClass, substr } from 'src/utils/paths';
+import Image from 'src/components/Image';
 
 const ProgramStudi = ({ className, ...props }) => {
 	const [state, setState] = useState({ data: [], content: '' })
@@ -28,7 +29,7 @@ const ProgramStudi = ({ className, ...props }) => {
 				<div className="flex flex-col w-full">
 					<div className="m-3 o-h brd-3 flex flex-col">
 						<Link className="h-50 w-auto as-c o-h" to={`/akademik/s1/${jurusan.id_program}/${jurusan.id}`}>
-							<img alt="" className="zoom" src={FILE_PATH + jurusan.foto_prodi} />
+							<Image alt="" className="zoom" src={FILE_PATH + jurusan.foto_prodi} />
 						</Link>
 						<div className="p-3 pr-4 pl-4">
 							<h5>{jurusan.nama_prodi}</h5>

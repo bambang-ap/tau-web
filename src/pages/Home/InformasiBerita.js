@@ -5,6 +5,7 @@ import { getArticle, FILE_PATH } from 'src/utils/api';
 import ReactElasticCarousel from 'src/components/ReactElasticCarousel';
 import useWindowSize from 'src/utils/windowSize';
 import { btnClass, substr } from 'src/utils/paths';
+import Image from 'src/components/Image';
 
 const InformasiBerita = ({ className, ...props }) => {
 	const isHome = window.location.pathname.includes('/home')
@@ -37,7 +38,7 @@ const InformasiBerita = ({ className, ...props }) => {
 	const Items = (isHome ? state.data.filter((a, i) => i < 8) : state.data).rMap(a => <div className={`flex p-3 ${isHome ? 'w-full' : isMobile ? 'w-full' : 'w-1/4'} flex-col`}>
 	<div className="b-1 brd-1 flex flex-col">
 			<Link to={'/' + a.url} className="o-h brd-1 mt-1 h-50 w-auto">
-				<img alt="" className="zoom" src={FILE_PATH + a.foto} />
+				<Image alt="" className="zoom" src={FILE_PATH + a.foto} />
 			</Link>
 			<div className="p-3 pr-4 pl-4">
 				<h5>{a.judul}</h5>

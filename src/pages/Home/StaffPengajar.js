@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import useWindowSize from 'src/utils/windowSize';
 import ReactElasticCarousel from 'src/components/ReactElasticCarousel';
 import { btnClass } from 'src/utils/paths';
+import Image from 'src/components/Image';
 
 const StaffPengajar = ({ className, ...props }) => {
 	const isHome = window.location.pathname.includes('/home')
@@ -16,7 +17,7 @@ const StaffPengajar = ({ className, ...props }) => {
 	}
 	const Items = state.data.rMap(a => <div className={`o-h p-5 ${isHome ? '' : 'w-1/4'}`}>
 		<div className="shadow-md brd-3 h-auto w-full as-c o-h">
-			<img className="zoom" alt="" src={FILE_PATH + a.foto} />
+			<Image className="zoom" alt="" src={FILE_PATH + a.foto} />
 		</div>
 		<div className="mt-5">{a.nama}</div>
 		<div className="as-fs c-link SemiBoldItalic">{a.jabatan}</div>

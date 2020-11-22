@@ -43,8 +43,9 @@ button:focus, input:focus, textarea:focus {
 }
 
 * {
-  &:not(.fa) {
-    font-family: SemiBold; 
+  &:not(.fa):not([class*='c']) {
+    font-family: Helvetica; 
+    color: $text;
   }
   &:not(h1, h2, h3, h4, h5, h6) {
     font-size: #{$fontSize}rem;
@@ -67,30 +68,50 @@ button:focus, input:focus, textarea:focus {
   @import "Tentang";
   @import "Kontak";
   .content-berita, #tentang #tentang-content {
-    $list: ul ol;
     b, strong {
-      font-family: Bold !important;
+      // font-family: Bold !important;
+      font-weight: 500;
     }
     a {
       color: $link;
     }
-    @each $var in $list {
-      #{$var} {
-        margin-left: #{$fontSize * 1.5}rem;
-        &:not([style*="list-style-type"]) {
-          margin-left: 0;
-          counter-reset: number;
-          li {
-            display: flex;
-            counter-increment: number;
-            &:before {
-              content: if($var == ol, counter(number)".", "-");
-              margin-right: .5rem;
-              overflow-wrap: break-word; 
-            }
-          }
-        }
-      }
+    ul, ol {
+      list-style: revert;
+      padding: 1rem;
     }
+    * {
+      overflow-wrap: anywhere;
+    }
+    [style*="float: right"] {
+      margin: 1rem 0 1rem 1rem;
+    }
+    [style*="float: left"] {
+      margin: 1rem 1rem 1rem 0;
+    }
+    // $list: ul ol;
+    // b, strong {
+    //   font-family: Bold !important;
+    // }
+    // a {
+    //   color: $link;
+    // }
+    // @each $var in $list {
+    //   #{$var} {
+    //     margin-left: #{$fontSize * 1.5}rem;
+    //     &:not([style*="list-style-type"]) {
+    //       margin-left: 0;
+    //       counter-reset: number;
+    //       li {
+    //         display: flex;
+    //         counter-increment: number;
+    //         &:before {
+    //           content: if($var == ol, counter(number)".", "-");
+    //           margin-right: .5rem;
+    //           overflow-wrap: break-word; 
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
   }
 }
