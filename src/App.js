@@ -9,6 +9,16 @@ import useWindowSize, { useToggle } from "src/utils/windowSize";
 import { useState } from "react";
 import { getManage } from "./utils/api";
 import { Link } from "react-router-dom";
+import $ from 'jquery'
+import store from "./redux";
+import actionsWeb from "./redux/actions/web";
+
+$(() => {
+  setTimeout(() => {
+    store.dispatch(actionsWeb({ documentReady: true }))
+  }, 1500)
+})
+
 const App = () => {
   const dispatch = useDispatch()
   const Web = useSelector(state => state.Web)

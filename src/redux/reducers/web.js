@@ -1,6 +1,7 @@
 const initState = {
 	noBanner: false,
-	noFooter: false
+	noFooter: false,
+	documentReady: false
 }
 
 const reducerWeb = (state = initState, actions) => {

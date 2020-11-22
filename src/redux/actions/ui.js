@@ -8,7 +8,7 @@ const actionUi = () => {
 		payload: new Promise(async resolve => {
 			let ui = require('src/assets/ui.json')
 			const { data: category } = await getS1Kategori()
-			const promises = category.map(async cat => {
+			const promises = (category || []).map(async cat => {
 				const { data } = await getS1({ id_program: cat.id })
 				return { ...cat, data }
 			})

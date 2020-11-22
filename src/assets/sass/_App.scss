@@ -28,7 +28,9 @@ img {
     }
   }
 }
-
+.info-kontak-data *:not(.btn):not(.input) {
+  color: $light !important;
+}
 a {
   text-decoration: none;
   color: $link;

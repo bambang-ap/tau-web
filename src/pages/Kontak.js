@@ -45,7 +45,7 @@ const Kontak = ({ className, ...props }) => {
 					src="https://maps.google.com/maps?q=tanri%20abeng%20university&t=&z=13&ie=UTF8&iwloc=&output=embed"
 				/>
 			</div>
-			<div className="p-5 flex flex-col w-full xl:w-1/2">
+			<div className="info-kontak-data p-5 flex flex-col w-full xl:w-1/2">
 				{!isMobile && <h5>Kontak kami</h5>}
 				<h5>{manage.kontakUnivName}</h5>
 				<div>{manage.kontakAlamat}</div>
@@ -64,7 +64,7 @@ const Kontak = ({ className, ...props }) => {
 					<Input className={`flex flex-1 ${!isMobile && 'ml-1'}`} onBlur={e => setState({ email: e.target.value })} placeholder="Email" />
 				</div>
 				<Textarea onBlur={e => setState({ comment: e.target.value })} placeholder="Comment or Questions" />
-				<Button onClick={sendEmail} className="as-fs">KIRIM</Button>
+				<Button onClick={sendEmail} className="btn as-fs">KIRIM</Button>
 			</div>
 		</div>
 	</div>

@@ -1,20 +1,19 @@
-import React, { useEffect } from 'react';
-import HomeRoute from './Home';
-import { Switch, Route, useHistory, Redirect } from 'react-router-dom';
-import AkademikRoute from './Akademik';
-import Fasilitas from 'src/pages/Home/Fasilitas';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { useDispatch } from 'react-redux';
-import actionsWeb from 'src/redux/actions/web';
-import Article from 'src/pages/Article';
-import InformasiBerita from 'src/pages/Home/InformasiBerita';
-import RedirectArticle from 'src/components/RedirectArticle';
+import { Switch, Route, useHistory, Redirect } from 'react-router-dom';
 import { Button } from 'src/components/Button';
 import { Input } from 'src/components/Input';
-import Tentang from 'src/pages/Tentang';
-import BoardOfAdvisors from 'src/pages/Home/BoardOfAdvisors';
-// import Article from 'src/pages/Article';
+const HomeRoute = lazy(() => import('./Home'));
+const AkademikRoute = lazy(() => import('./Akademik'));
+const Fasilitas = lazy(() => import('src/pages/Home/Fasilitas'));
+const actionsWeb = lazy(() => import('src/redux/actions/web'));
+const Article = lazy(() => import('src/pages/Article'));
+const InformasiBerita = lazy(() => import('src/pages/Home/InformasiBerita'));
+const RedirectArticle = lazy(() => import('src/components/RedirectArticle'));
+const Tentang = lazy(() => import('src/pages/Tentang'));
+const BoardOfAdvisors = lazy(() => import('src/pages/Home/BoardOfAdvisors'));
 
-const Routes = ({ className }) => {
+const LazyRoutes = ({ className }) => {
 	const history = useHistory()
 	const dispatch = useDispatch()
 	const { pathname } = window.location
@@ -72,6 +71,12 @@ const Routes = ({ className }) => {
 			<Route path="/:url" component={Article} />
 		</Switch>
 	</div>
+}
+
+const Routes = () => {
+	return <Suspense fallback={<div />}>
+		<LazyRoutes />
+	</Suspense>
 }
 
 export default Routes

@@ -12,7 +12,7 @@ const Sambutan = ({ className, ...props }) => {
 	const getData = async () => {
 		let { data } = await getManage({ part: 'sambutan' })
 		// const [width, height, isWidth] = await imgSize(FILE_PATH + data.image)
-		data.image = FILE_PATH + data.image
+		data.image = data ? FILE_PATH + data.image : ''
 		setState(data)
 	}
 	const effect = () => {
