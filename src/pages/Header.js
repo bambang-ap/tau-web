@@ -4,7 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import useWindowSize from 'src/utils/windowSize';
 import Image from 'src/components/Image';
-
+let hjhjdsh = -1
 const Header = ({ className, ...props }) => {
 	const { data: { nav } } = useSelector(state => state.UI)
 	const [subMenuOpen, setSubMenuOpen] = useState({})
@@ -19,6 +19,7 @@ const Header = ({ className, ...props }) => {
 		setSubMenuOpen({ ...menu })
 	}
 	const NavBar = (arr, id = "", prevPath = "") => {
+		hjhjdsh++
 		const Menu = id === ""
 		return arr.map(
 			({ name = "", path, subMenu }, i) => {

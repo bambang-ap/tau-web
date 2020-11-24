@@ -5,7 +5,7 @@ const ReactElasticCarousel = ({ className = "", itemsToShow, length, children, .
 	const autoPlaySpeed = 5000
 	const carouselRef = useRef()
 	return <ReactCarousel
-		enableAutoPlay
+		// enableAutoPlay
 		className={`${className} arrow-dark`}
 		ref={carouselRef}
 		autoPlaySpeed={autoPlaySpeed}

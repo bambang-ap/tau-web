@@ -23,19 +23,23 @@ const Fasilitas = ({ className, ...props }) => {
 	const [indexShow, setIndexShow] = useState(false)
 
 	useEffect(effect, [])
+	useEffect(() => {
+		document.querySelector('body').style.overflow = visible ? 'hidden' : ''
+	}, [visible])
 	const Items = state.data.rMap((a, index) => {
 		const height = screenHeight - (screenHeight * 40 / 100)
-		return <div onClick={() => {
-			if (!visible) {
-				setVisible(true)
-				setIndexShow(index)
-			}
-		}} style={visible ? { height } : { cursor: 'pointer' }} className={`${isHome ? '' : isMobile ? 'w-full' : 'w-1/4'} flex flex-col p-5`}>
-			<div className="h-50 zoom w-auto as-c brd-3 o-h">
-				<Image className="zoom" alt="" src={FILE_PATH + a.foto} />
+		return visible ? <Image nativeImage={visible} style={{ height }} className="w-auto" alt="" src={FILE_PATH + a.foto} /> :
+			<div onClick={() => {
+				if (!visible) {
+					setVisible(true)
+					setIndexShow(index)
+				}
+			}} style={visible ? { height } : { cursor: 'pointer' }} className={`${isHome ? '' : isMobile ? 'w-full' : 'w-1/4'} flex flex-col p-5`}>
+				<div className="h-50 zoom w-auto as-c brd-3 o-h">
+					<Image nativeImage={visible} className="zoom" alt="" src={FILE_PATH + a.foto} />
+				</div>
+				<div className="mt-5">{a.nama}</div>
 			</div>
-			<div className="mt-5">{a.nama}</div>
-		</div>
 	})
 	return <div {...props} id="fasilitas" className={`pb-3 flex flex-wrap jc-c ${className}`}>
 		<Modal className="jc-c ai-c" onClickBlack={() => setVisible(false)} visible={visible}>

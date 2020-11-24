@@ -3,10 +3,10 @@ import { useDispatch } from 'react-redux';
 import { Switch, Route, useHistory, Redirect } from 'react-router-dom';
 import { Button } from 'src/components/Button';
 import { Input } from 'src/components/Input';
+import actionsWeb from 'src/redux/actions/web'
 const HomeRoute = lazy(() => import('./Home'));
 const AkademikRoute = lazy(() => import('./Akademik'));
 const Fasilitas = lazy(() => import('src/pages/Home/Fasilitas'));
-const actionsWeb = lazy(() => import('src/redux/actions/web'));
 const Article = lazy(() => import('src/pages/Article'));
 const InformasiBerita = lazy(() => import('src/pages/Home/InformasiBerita'));
 const RedirectArticle = lazy(() => import('src/components/RedirectArticle'));
