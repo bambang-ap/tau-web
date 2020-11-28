@@ -21,28 +21,32 @@ const GaleriKegiatan = ({ className, staticContext, ...props }) => {
 		if (status) setDataGaleri(data)
 		if (statusManage) setDeskripsiGaleri(content)
 	}
+	useEffect(() => {
+		document.querySelector('body').style.overflow = visible ? 'hidden' : ''
+	}, [visible])
 	const Items = dataGaleri.rMap(({ is_embed, media, is_video }, index) => {
 		const height = screenHeight - (screenHeight * 40 / 100)
-		return <div style={visible ? { height } : { cursor: 'pointer' }}
-			onClick={() => {
-				if (!visible) {
-					setVisible(true)
-					setIndexShow(index)
-				}
-			}}
-			className={`${visible ? 'flex jc-c' : 'h-50'} m-3 w-full content o-h`}>
-			{is_embed === '1' ?
-				<iframe className="b-1 brd-3 w-full h-full" src={media} title="embed-show" /> : is_video === '1' ?
-					<video className={`b-1 brd-3 as-c flex ${visible ? 'w-auto h-full' : 'h-auto w-full'}`} {...visible && { controls: true }}>
-						<source src={FILE_PATH + media} />
-					</video> :
-					<div className={`b-1 brd-3 o-h ${visible ? 'w-auto h-full' : 'h-auto w-full'}`}>
-						<Image
-							className={`as-c flex ${visible ? '' : 'zoom'}`}
-							alt="" src={FILE_PATH + media}
-						/>
-					</div>}
-		</div>
+		return visible ? <Image nativeImage={visible} style={{ height }} className="w-auto" alt="" src={FILE_PATH + media} /> :
+			<div style={visible ? { height } : { cursor: 'pointer' }}
+				onClick={() => {
+					if (!visible) {
+						setVisible(true)
+						setIndexShow(index)
+					}
+				}}
+				className={`${visible ? 'flex jc-c' : 'h-50'} m-3 w-full content o-h`}>
+				{is_embed === '1' ?
+					<iframe className="b-1 brd-3 w-full h-full" src={media} title="embed-show" /> : is_video === '1' ?
+						<video className={`b-1 brd-3 as-c flex ${visible ? 'w-auto h-full' : 'h-auto w-full'}`} {...visible && { controls: true }}>
+							<source src={FILE_PATH + media} />
+						</video> :
+						<div className={`b-1 brd-3 o-h ${visible ? 'w-auto h-full' : 'h-auto w-full'}`}>
+							<Image
+								className={`as-c flex ${visible ? '' : 'zoom'}`}
+								alt="" src={FILE_PATH + media}
+							/>
+						</div>}
+			</div>
 	})
 	const effect = () => {
 		getData()
