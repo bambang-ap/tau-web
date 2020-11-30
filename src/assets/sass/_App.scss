@@ -22,6 +22,7 @@ img {
   user-drag: none;
   transition: 1s;
   &.zoom {
+    transition: 1s;
     transform-origin: center top;
     &:hover {
       transform: scale(1.3);

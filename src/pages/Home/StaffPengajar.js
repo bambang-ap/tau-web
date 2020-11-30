@@ -30,7 +30,8 @@ const StaffPengajar = ({ className, ...props }) => {
 	return <div {...props} id="staff-pengajar" className={`flex flex-wrap ${className}`}>
 		{isHome ? <ReactElasticCarousel length={Items.length} focusOnSelect={false}
 			showArrows={true}
-			className={`mt-3 mb-3 ${isHome ? isMobile ? 'w-full' : 'w-3/4' : 'w-full'}`}
+			style={{ width: isHome ? isMobile ? '100%' : '75%' : '100%' }}
+			className={`mt-3 mb-3`}// ${isHome ? isMobile ? 'w-full' : 'w-3/4' : 'w-full'}`}
 			itemsToShow={isMobile ? 1 : 3}>
 			{Items}
 		</ReactElasticCarousel>
