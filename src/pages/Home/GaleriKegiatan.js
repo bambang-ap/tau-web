@@ -24,9 +24,17 @@ const GaleriKegiatan = ({ className, staticContext, ...props }) => {
 	useEffect(() => {
 		document.querySelector('body').style.overflow = visible ? 'hidden' : ''
 	}, [visible])
-	const Items = dataGaleri.rMap(({ is_embed, media, is_video }, index) => {
+	const Items = (visible = false) => dataGaleri.rMap(({ is_embed, media, is_video }, index) => {
 		const height = screenHeight - (screenHeight * 40 / 100)
-		return visible ? <Image nativeImage={visible} style={{ height }} className="w-auto" alt="" src={FILE_PATH + media} /> :
+		const mediaUrl = is_embed === '1' ? `https://img.youtube.com/vi/${media.split('/').slice(-1).pop()}/1.jpg` : FILE_PATH + media
+		return visible ? (
+			is_embed === '1' ?
+				<iframe style={{ height }} className="w-full h-full" src={media} title="embed-show" /> : is_video === '1' ?
+					<video className={`w-full h-full`} controls>
+						<source src={FILE_PATH + media} />
+					</video> :
+					<Image nativeImage={visible} style={{ height }} className="w-auto" alt="" src={FILE_PATH + media} />
+		) :
 			<div style={visible ? { height } : { cursor: 'pointer' }}
 				onClick={() => {
 					if (!visible) {
@@ -34,17 +42,17 @@ const GaleriKegiatan = ({ className, staticContext, ...props }) => {
 						setIndexShow(index)
 					}
 				}}
-				className={`${visible ? 'flex jc-c' : 'h-50'} m-3 w-full content o-h`}>
+				className={`${visible ? 'flex jc-c' : 'h-50'} m-3 w-full relative content o-h`}>
 				{is_embed === '1' ?
-					<iframe className="b-1 brd-3 w-full h-full" src={media} title="embed-show" /> : is_video === '1' ?
-						<video className={`b-1 brd-3 as-c flex ${visible ? 'w-auto h-full' : 'h-auto w-full'}`} {...visible && { controls: true }}>
-							<source src={FILE_PATH + media} />
+					<>
+						<div style={{ zIndex: 9999 }} className="absolute w-full h-full" />
+						<iframe className="b-1 brd-3 w-full h-full" src={media} title="embed-show" />
+					</> : is_video === '1' ?
+						<video className={`b-1 brd-3 as-c flex ${visible ? 'w-auto h-full' : 'h-auto w-full'}`}>
+							<source src={mediaUrl} />
 						</video> :
 						<div className={`b-1 brd-3 o-h ${visible ? 'w-auto h-full' : 'h-auto w-full'}`}>
-							<Image
-								className={`as-c flex ${visible ? '' : 'zoom'}`}
-								alt="" src={FILE_PATH + media}
-							/>
+							<Image className={`as-c flex ${visible ? '' : 'zoom'}`} alt="" src={mediaUrl} />
 						</div>}
 			</div>
 	})
@@ -56,7 +64,7 @@ const GaleriKegiatan = ({ className, staticContext, ...props }) => {
 		<Modal className="jc-c ai-c" onClickBlack={() => setVisible(false)} visible={visible}>
 			<div style={isMobile ? { width: '100%' } : { width: '80%', height: '80%' }} className="flex ai-c brd-3 bc-light p-5">
 				<ReactElasticCarousel length={Items.length} initialFirstItem={indexShow} className="p-5" focusOnSelect={false} showArrows={true} itemsToShow={1}>
-					{Items}
+					{Items(true)}
 				</ReactElasticCarousel>
 			</div>
 		</Modal>
@@ -64,7 +72,7 @@ const GaleriKegiatan = ({ className, staticContext, ...props }) => {
 			<h4>Galeri Kegiatan</h4>
 			<h5 className="p3 ta-c">{deskripsiGaleri}</h5>
 			{isHome ? <ReactElasticCarousel length={Items.length} focusOnSelect={false} showArrows={true} itemsToShow={isMobile ? 1 : 4}>
-				{Items}
+				{Items()}
 			</ReactElasticCarousel> : Items}
 		</div>
 	</>

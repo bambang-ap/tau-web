@@ -35,7 +35,7 @@ const Article = ({ location: { state: locationState }, match: { params } }) => {
 			</div>
 			<div className={`${isMobile ? '' : 'w-5/6'}`}>
 				<h1 className="ta-c">{state.judul}</h1>
-				<h5 className="ta-c">{state.tgl}</h5>
+				{state.hideTanggal !== '1' && <h5 className="ta-c">{state.tgl}</h5>}
 			</div>
 		</div>
 		<div className="pt-5 pb-5">
